@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physician Loan vs. Conventional Mortgage: Key Differences | MedPharmaConnect</title>
+  <meta name="description" content="Compare physician loans and conventional mortgages. Learn about underwriting differences, PMI, down payments, student debt treatment, and loan limits." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* Article-specific styles */
+    .article-hero {
+      background: var(--navy);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,86,160,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .article-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .article-hero .eyebrow {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .article-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+
+    .article-meta-bar {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Article body */
+    .article-body {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .article-content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .article-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .article-content p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .article-content ul, .article-content ol {
+      color: var(--text);
+      margin: 20px 0 20px 24px;
+      line-height: 1.8;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table th {
+      background: var(--light);
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--navy);
+      border-bottom: 2px solid var(--border);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .comparison-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background: rgba(244, 247, 251, 0.5);
+    }
+
+    .highlight-box {
+      background: rgba(46, 139, 110, 0.05);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 8px;
+      margin: 32px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .highlight-box strong {
+      color: var(--navy);
+    }
+
+    /* Bottom CTA */
+    .article-cta {
+      background: var(--light);
+      padding: 60px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .article-cta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .article-cta p {
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .disclaimer {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 60px;
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .disclaimer strong {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .article-hero {
+        padding: 60px 0 40px;
+      }
+
+      .article-hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .article-body {
+        padding: 60px 0;
+      }
+
+      .article-meta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .comparison-table {
+        font-size: 14px;
+      }
+
+      .comparison-table th, .comparison-table td {
+        padding: 12px;
+      }
+
+      .article-content h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" style="display:inline-block;line-height:0;">
+        <svg width="240" height="48" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+          <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#who-qualifies">Who Qualifies</a>
+        <a href="../index.html#benefits">Benefits</a>
+        <a href="../index.html#faq">FAQ</a>
+        <div class="nav-social">
+          <a href="#" class="nav-social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+        <a href="../index.html#learn-more" class="btn btn-outline">Learn More</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="container article-hero-inner">
+      <span class="eyebrow">Guide</span>
+      <h1>Physician Loan vs. Conventional Mortgage: What's Actually Different?</h1>
+      <p>A clear breakdown of the key differences that could save you money and unlock homeownership faster.</p>
+      <div class="article-meta-bar">
+        <span class="meta-item">5 min read</span>
+        <span class="meta-item">Apr 14, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-body">
+    <div class="container article-content">
+
+      <h2>Introduction</h2>
+      <p>When you're a physician, dentist, or pharmacist looking to buy your first home, you've likely heard the phrase "physician loan." But what does it actually mean? And more importantly, how is it different from the conventional mortgages that banks advertise to everyone else?</p>
+      <p>The answer lies in how lenders view you as a borrower. A physician loan recognizes the reality of your life: you may have high student debt, minimal down payment savings, and a short employment history — yet you're statistically one of the most reliable borrowers a lender will ever meet.</p>
+
+      <h2>Down Payment Requirements</h2>
+      <p>One of the most striking differences between physician loans and conventional mortgages is the down payment flexibility.</p>
+      <p><strong>Conventional loans</strong> typically require 3-20% down, depending on your credit score and loan size. If you put down less than 20%, you'll pay for private mortgage insurance (PMI), which can add hundreds to your monthly payment and tens of thousands over the life of the loan.</p>
+      <p><strong>Physician loans</strong> often allow 0-5% down with no PMI requirement, even on loans exceeding $1 million. This means you can keep more cash in your emergency fund, invest in your practice, or simply avoid the financial strain of a massive down payment while your income is still ramping up.</p>
+
+      <h2>Private Mortgage Insurance (PMI)</h2>
+      <p>If you've ever looked at a conventional mortgage with less than 20% down, you've seen PMI quoted. It's usually 0.5-1.5% of your loan amount per year, paid monthly as part of your mortgage payment.</p>
+      <p><strong>On a $400,000 conventional loan with 10% down</strong>, you might pay $3,000-4,500 per year in PMI alone — and that continues until you've paid down 20% of the home's original value.</p>
+      <p><strong>Physician loans sidestep this entirely.</strong> Because lenders see you as a lower-risk borrower despite the low down payment, they waive PMI. Over 30 years, this can save you $50,000-$100,000 or more.</p>
+
+      <h2>Student Debt Treatment</h2>
+      <p>This is where physician loans truly shine for medical professionals.</p>
+      <p>Conventional lenders calculate your debt-to-income ratio (DTI) by counting your full monthly student loan payment as debt. If you're on an income-driven repayment plan paying $500 per month on a $200,000 loan balance, lenders count that full $500 against you, even though your actual obligation varies with your income.</p>
+      <p><strong>Physician loan programs take a different approach.</strong> Some count only a percentage of your student loan balance (often 0.5%) rather than the actual payment. Others may use $0 if your loans are in deferment. A few programs even consider income-driven repayment plans at their face value, recognizing that a physician's rising income typically leads to rising payments and eventual forgiveness.</p>
+      <p>The result: on the same income and student debt, you might qualify to borrow $150,000-$300,000 more with a physician loan than a conventional mortgage.</p>
+
+      <h2>Income Verification and Employment Contracts</h2>
+      <p>Conventional lenders want to see W-2s and a 2-year employment history. If you're a resident making $60,000 per year, you're locked into that income number for underwriting purposes — which limits your borrowing power to roughly $200,000-$250,000.</p>
+      <p><strong>Physician loans recognize your contract.</strong> Many programs will use your employment offer letter or contract to qualify you at your future income, even before you've earned your first paycheck. A resident signing a 3-year contract at $250,000 for an attending position can often qualify based on that $250,000 salary immediately, opening up borrowing power of $800,000-$1,000,000 or more.</p>
+
+      <h2>Loan Limits and Flexibility</h2>
+      <p>Conventional loans have strict limits: $766,550 (2024 federal limit) in most areas, with occasional exceptions in high-cost markets.</p>
+      <p>Physician loans typically go much higher — often $1 million, $1.5 million, or even $2 million depending on the lender and your income. This matters less for a $400,000 starter home, but it matters enormously for physicians in expensive markets or those buying their final home.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Conventional Loan</th>
+            <th>Physician Loan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Down Payment</strong></td>
+            <td>3-20% (PMI if less than 20%)</td>
+            <td>0-5% (no PMI)</td>
+          </tr>
+          <tr>
+            <td><strong>Student Debt Treatment</strong></td>
+            <td>Counts full monthly payment</td>
+            <td>Percentage of balance or $0 in deferment</td>
+          </tr>
+          <tr>
+            <td><strong>Employment History</strong></td>
+            <td>Requires 2-year W-2 history</td>
+            <td>Accepts contract or offer letter</td>
+          </tr>
+          <tr>
+            <td><strong>Income Used for Qualification</strong></td>
+            <td>Current verified income</td>
+            <td>Contract income (even future earnings)</td>
+          </tr>
+          <tr>
+            <td><strong>Loan Limit</strong></td>
+            <td>$766,550 (federal limit)</td>
+            <td>$1M-$2M+ (varies by lender)</td>
+          </tr>
+          <tr>
+            <td><strong>Typical Credit Score Requirement</strong></td>
+            <td>620-680 minimum</td>
+            <td>680+ (some 640+)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Interest Rates and Overall Costs</h2>
+      <p>A common misconception: physician loans have higher interest rates because they're "riskier." The opposite is true.</p>
+      <p>Interest rates depend on the broader market, your credit score, and the loan amount — not whether it's a conventional or physician loan. Many physician loan borrowers get rates equal to or better than conventional borrowers because they're seen as stable, high-earning professionals with lower default risk.</p>
+
+      <div class="highlight-box">
+        <p><strong>The Real Money Saver:</strong> When you combine 0% down, no PMI, and the ability to borrow based on future income, a physician loan can save $100,000-$300,000 compared to a conventional loan — even if the interest rate is identical.</p>
+      </div>
+
+      <h2>Key Takeaways</h2>
+      <ul>
+        <li><strong>Down payment:</strong> Physician loans let you buy with 0-5% down and skip PMI entirely. Conventional loans require 20% down to avoid PMI.</li>
+        <li><strong>Student debt:</strong> Physician programs treat student loans much more favorably, dramatically improving your borrowing power.</li>
+        <li><strong>Income:</strong> You can qualify based on your contract income, not your current resident salary.</li>
+        <li><strong>Limits:</strong> Physician loans go higher than conventional mortgages, important in expensive markets.</li>
+        <li><strong>Trade-off:</strong> Physician loans are specialized products offered by fewer lenders, so you'll need to shop with banks that specialize in them.</li>
+      </ul>
+
+      <h2>Next Steps</h2>
+      <p>If you're a resident, fellow, or early-career physician considering buying a home, a physician loan may be the smartest path forward. But compare rates and terms across multiple lenders — just like with any mortgage. Each program has slightly different rules around student debt calculation, down payments, and documentation.</p>
+      <p>The difference in cost can easily reach six figures. It's worth taking the time to get it right.</p>
+
+    </div>
+  </section>
+
+  <!-- ARTICLE CTA -->
+  <section class="article-cta">
+    <div class="container">
+      <h3>Ready to Explore Your Options?</h3>
+      <p>MedPharmaConnect is an educational resource, not a lender. But we can point you toward lenders who specialize in physician mortgages. Start with a conversation about what's possible for your situation.</p>
+      <a href="../index.html#learn-more" class="btn btn-primary">Get Started</a>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="article-body">
+    <div class="container">
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> MedPharmaConnect is an educational resource provided for informational purposes only. We are not a lender, mortgage broker, or financial advisor. The information on this site does not constitute professional financial, legal, or tax advice. Physician loan terms, rates, and eligibility vary significantly by lender and state. Please consult with a qualified mortgage professional and financial advisor before making any homeownership decisions.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <svg width="220" height="44" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#00b4d8"/>
+          <rect x="10" y="24" width="32" height="22" fill="rgba(255,255,255,0.2)"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.7"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#00b4d8">Connect</text>
+        </svg>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('is-open');
+      });
+    });
+  </script>
+</body>
+</html>

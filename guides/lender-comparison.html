@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physician Lender Comparison Guide | MedPharmaConnect</title>
+  <meta name="description" content="Know what to look for when comparing physician mortgage lenders. A printable feature-by-feature checklist for doctors, dentists, and pharmacists." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1a2332; }
+
+    /* NAV */
+    .nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 1.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 700; color: #003d5c; text-decoration: none; }
+    .nav-logo span { color: #0096a0; }
+    .nav-back { color: #0077b6; font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+    .nav-back:hover { color: #003d5c; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #003d5c 0%, #0077b6 100%); color: #fff; padding: 3.5rem 1.5rem 2.5rem; text-align: center; }
+    .hero .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #90e0ef; margin-bottom: 0.75rem; display: block; }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 0.75rem; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .print-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 8px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .print-btn:hover { background: rgba(255,255,255,0.25); }
+
+    /* CONTENT */
+    .container { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* INTRO */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+    @media (max-width: 640px) { .intro-grid { grid-template-columns: 1fr; } }
+    .intro-card { background: #fff; border-radius: 12px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid #0096a0; }
+    .intro-card h3 { font-size: 0.9rem; font-weight: 700; color: #003d5c; margin-bottom: 0.4rem; }
+    .intro-card p { font-size: 0.85rem; color: #4a5568; line-height: 1.6; }
+
+    /* SECTION HEADER */
+    .section-head { margin: 2.5rem 0 1.25rem; }
+    .section-head h2 { font-family: 'Merriweather', serif; font-size: 1.25rem; color: #003d5c; margin-bottom: 0.25rem; }
+    .section-head p { font-size: 0.875rem; color: #718096; }
+
+    /* COMPARISON TABLE */
+    .table-wrap { overflow-x: auto; margin-bottom: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); font-size: 0.875rem; }
+    thead tr { background: #003d5c; color: #fff; }
+    thead th { padding: 0.85rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.03em; }
+    thead th:first-child { width: 35%; }
+    thead th:not(:first-child) { text-align: center; width: 130px; }
+    tbody tr { border-bottom: 1px solid #e2e8f0; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #f0f8ff; }
+    td { padding: 0.85rem 1rem; vertical-align: top; line-height: 1.5; }
+    td:first-child { font-weight: 500; color: #2d3748; }
+    td.note { font-size: 0.78rem; color: #718096; font-weight: 400; display: block; margin-top: 0.2rem; }
+    td:not(:first-child) { text-align: center; }
+
+    /* CHECKBOX COLUMN */
+    .check-cell { width: 100px; }
+    .checkbox { width: 22px; height: 22px; border: 2px solid #cbd5e0; border-radius: 5px; display: inline-block; cursor: pointer; position: relative; background: #fff; transition: border-color 0.15s, background 0.15s; }
+    .checkbox.checked { background: #0077b6; border-color: #0077b6; }
+    .checkbox.checked::after { content: '✓'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 14px; font-weight: 700; }
+
+    /* LENDER COLUMNS */
+    .lender-head { cursor: pointer; }
+    .lender-input { background: transparent; border: none; border-bottom: 2px solid rgba(255,255,255,0.4); color: #fff; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; text-align: center; width: 90px; padding: 0.2rem 0.3rem; outline: none; }
+    .lender-input::placeholder { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .lender-input:focus { border-bottom-color: #90e0ef; }
+
+    .rating-select { border: 1.5px solid #cbd5e0; border-radius: 6px; padding: 0.3rem 0.5rem; font-size: 0.82rem; font-family: 'Inter', sans-serif; background: #fff; color: #2d3748; cursor: pointer; width: 100px; }
+    .rating-select:focus { outline: none; border-color: #0077b6; }
+    .rating-select.good { background: #dcfce7; border-color: #16a34a; color: #15803d; font-weight: 600; }
+    .rating-select.ok { background: #fef3c7; border-color: #d97706; color: #b45309; font-weight: 600; }
+    .rating-select.bad { background: #fee2e2; border-color: #dc2626; color: #b91c1c; font-weight: 600; }
+
+    textarea.notes { border: 1.5px solid #cbd5e0; border-radius: 6px; padding: 0.4rem 0.5rem; font-size: 0.8rem; font-family: 'Inter', sans-serif; width: 100px; resize: none; height: 48px; background: #fafbfc; color: #2d3748; }
+    textarea.notes:focus { outline: none; border-color: #0077b6; background: #fff; }
+
+    /* SCORE ROW */
+    .score-row { background: #003d5c !important; color: #fff; }
+    .score-row td { color: #fff; font-weight: 700; font-size: 0.925rem; }
+    .score-row td:first-child { color: #90e0ef; }
+    .score-num { font-size: 1.4rem; font-weight: 700; color: #0096a0; }
+
+    /* QUESTIONS */
+    .q-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .q-item { background: #fff; border-radius: 10px; padding: 1rem 1.25rem; box-shadow: 0 1px 6px rgba(0,0,0,0.06); display: flex; gap: 1rem; align-items: flex-start; }
+    .q-num { flex-shrink: 0; width: 28px; height: 28px; background: #003d5c; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; margin-top: 1px; }
+    .q-text { font-size: 0.875rem; color: #2d3748; line-height: 1.6; }
+    .q-text strong { display: block; color: #003d5c; font-weight: 600; margin-bottom: 0.15rem; }
+
+    /* TIPS */
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .tips-grid { grid-template-columns: 1fr; } }
+    .tip-card { background: #fff; border-radius: 10px; padding: 1rem 1.25rem; box-shadow: 0 1px 6px rgba(0,0,0,0.06); border-top: 3px solid #0096a0; }
+    .tip-card h4 { font-size: 0.875rem; font-weight: 700; color: #003d5c; margin-bottom: 0.35rem; }
+    .tip-card p { font-size: 0.82rem; color: #4a5568; line-height: 1.6; }
+
+    /* DISCLAIMER */
+    .disclaimer { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.25rem; margin-top: 2rem; }
+    .disclaimer p { font-size: 0.78rem; color: #718096; line-height: 1.6; }
+
+    @media print {
+      .nav, .hero .print-btn { display: none; }
+      .hero { background: #003d5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white; }
+      .container { padding: 1rem; }
+      table { box-shadow: none; border: 1px solid #e2e8f0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">MedPharma<span>Connect</span></a>
+    <a href="../index.html#resources" class="nav-back">← Back to Resources</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow">Printable Comparison Guide</span>
+  <h1>Physician Lender Feature Comparison</h1>
+  <p>Not all physician mortgage lenders are the same. Use this worksheet to compare up to 3 lenders side by side and know what questions to ask before you commit.</p>
+  <a class="print-btn" onclick="window.print(); return false;" href="#">🖨️ Print This Guide</a>
+</div>
+
+<div class="container">
+
+  <!-- INTRO CARDS -->
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>Why compare multiple lenders?</h3>
+      <p>Physician loan programs vary significantly between banks and credit unions — on rates, down payment requirements, loan limits, and which professions qualify. Getting 2–3 quotes is always worth the time.</p>
+    </div>
+    <div class="intro-card">
+      <h3>How to use this guide</h3>
+      <p>Fill in the names of lenders you're evaluating across the top. Rate each factor for each lender, then use the score tally at the bottom to compare overall fit.</p>
+    </div>
+  </div>
+
+  <!-- MAIN COMPARISON TABLE -->
+  <div class="section-head">
+    <h2>Side-by-Side Feature Comparison</h2>
+    <p>Type lender names in the column headers, then rate each factor below.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table id="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature to Evaluate</th>
+          <th><input class="lender-input" placeholder="Lender A" id="l1" /></th>
+          <th><input class="lender-input" placeholder="Lender B" id="l2" /></th>
+          <th><input class="lender-input" placeholder="Lender C" id="l3" /></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="4" style="background:#f0f8ff;font-weight:700;color:#003d5c;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;">Qualification Criteria</td></tr>
+        <tr>
+          <td>My specialty/degree qualifies<span class="note">Does your MD, DO, DMD, PharmD, etc. meet their eligibility list?</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="0">❌ No</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="0">❌ No</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="0">❌ No</option></select></td>
+        </tr>
+        <tr>
+          <td>Accepts employment contract (pre-start)<span class="note">Can you get pre-approved before your first day of work?</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="1">⚠️ Sometimes</option><option value="0">❌ No</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="1">⚠️ Sometimes</option><option value="0">❌ No</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">✅ Yes</option><option value="1">⚠️ Sometimes</option><option value="0">❌ No</option></select></td>
+        </tr>
+        <tr>
+          <td>Minimum credit score required<span class="note">Lower is more flexible — most programs require 700+</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 700 ✅</option><option value="1">701–720 ⚠️</option><option value="0">721+ ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 700 ✅</option><option value="1">701–720 ⚠️</option><option value="0">721+ ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 700 ✅</option><option value="1">701–720 ⚠️</option><option value="0">721+ ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>Max DTI ratio allowed<span class="note">Higher limit = more flexibility; physician programs typically go to 43–50%</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≥ 47% ✅</option><option value="1">43–46% ⚠️</option><option value="0">< 43% ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≥ 47% ✅</option><option value="1">43–46% ⚠️</option><option value="0">< 43% ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≥ 47% ✅</option><option value="1">43–46% ⚠️</option><option value="0">< 43% ❌</option></select></td>
+        </tr>
+
+        <tr><td colspan="4" style="background:#f0f8ff;font-weight:700;color:#003d5c;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;">Down Payment & Loan Terms</td></tr>
+        <tr>
+          <td>Down payment required<span class="note">Lower is more flexible — 0% is best for residency/fellowship situations</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">0% available ✅</option><option value="1">3–5% ⚠️</option><option value="0">10%+ ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">0% available ✅</option><option value="1">3–5% ⚠️</option><option value="0">10%+ ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">0% available ✅</option><option value="1">3–5% ⚠️</option><option value="0">10%+ ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>PMI required<span class="note">No PMI is a core benefit — confirm it's waived regardless of down payment</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">No PMI ✅</option><option value="0">PMI required ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">No PMI ✅</option><option value="0">PMI required ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">No PMI ✅</option><option value="0">PMI required ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>Maximum loan amount<span class="note">Higher limits needed for high-cost real estate markets</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">$1.5M+ ✅</option><option value="1">$1–1.5M ⚠️</option><option value="0">< $1M ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">$1.5M+ ✅</option><option value="1">$1–1.5M ⚠️</option><option value="0">< $1M ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">$1.5M+ ✅</option><option value="1">$1–1.5M ⚠️</option><option value="0">< $1M ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>Rate competitiveness<span class="note">Compare quoted rates to current conventional 30-yr average</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">At/below avg ✅</option><option value="1">Slightly above ⚠️</option><option value="0">Well above ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">At/below avg ✅</option><option value="1">Slightly above ⚠️</option><option value="0">Well above ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">At/below avg ✅</option><option value="1">Slightly above ⚠️</option><option value="0">Well above ❌</option></select></td>
+        </tr>
+
+        <tr><td colspan="4" style="background:#f0f8ff;font-weight:700;color:#003d5c;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;">Student Loan Treatment</td></tr>
+        <tr>
+          <td>Deferred loans counted as $0<span class="note">Some lenders count $0 for deferred loans — a major DTI advantage</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes — $0 ✅</option><option value="1">Partial ⚠️</option><option value="0">No ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes — $0 ✅</option><option value="1">Partial ⚠️</option><option value="0">No ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes — $0 ✅</option><option value="1">Partial ⚠️</option><option value="0">No ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>IDR payment used for DTI calculation<span class="note">Using actual IDR payment vs. 1% of balance makes a big difference</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Actual payment ✅</option><option value="1">0.5% balance ⚠️</option><option value="0">1% balance ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Actual payment ✅</option><option value="1">0.5% balance ⚠️</option><option value="0">1% balance ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Actual payment ✅</option><option value="1">0.5% balance ⚠️</option><option value="0">1% balance ❌</option></select></td>
+        </tr>
+
+        <tr><td colspan="4" style="background:#f0f8ff;font-weight:700;color:#003d5c;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;">Service & Experience</td></tr>
+        <tr>
+          <td>Physician loan specialist on team<span class="note">Ask directly — a dedicated specialist matters for complex files</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes ✅</option><option value="1">Maybe ⚠️</option><option value="0">No ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes ✅</option><option value="1">Maybe ⚠️</option><option value="0">No ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Yes ✅</option><option value="1">Maybe ⚠️</option><option value="0">No ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>Responsiveness / communication<span class="note">How quickly do they respond? Do they explain things clearly?</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Excellent ✅</option><option value="1">Acceptable ⚠️</option><option value="0">Poor ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Excellent ✅</option><option value="1">Acceptable ⚠️</option><option value="0">Poor ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">Excellent ✅</option><option value="1">Acceptable ⚠️</option><option value="0">Poor ❌</option></select></td>
+        </tr>
+        <tr>
+          <td>Closing timeline estimate<span class="note">Critical if your start date or contract has a hard deadline</span></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 21 days ✅</option><option value="1">22–35 days ⚠️</option><option value="0">36+ days ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 21 days ✅</option><option value="1">22–35 days ⚠️</option><option value="0">36+ days ❌</option></select></td>
+          <td><select class="rating-select" onchange="styleSelect(this); calcScore()"><option value="">—</option><option value="2">≤ 21 days ✅</option><option value="1">22–35 days ⚠️</option><option value="0">36+ days ❌</option></select></td>
+        </tr>
+
+        <tr><td colspan="4" style="background:#f0f8ff;font-weight:700;color:#003d5c;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;">Notes</td></tr>
+        <tr>
+          <td>Additional notes</td>
+          <td><textarea class="notes" placeholder="Any other details…"></textarea></td>
+          <td><textarea class="notes" placeholder="Any other details…"></textarea></td>
+          <td><textarea class="notes" placeholder="Any other details…"></textarea></td>
+        </tr>
+
+        <tr class="score-row">
+          <td>Total Score (out of 26)</td>
+          <td><span class="score-num" id="score-1">—</span></td>
+          <td><span class="score-num" id="score-2">—</span></td>
+          <td><span class="score-num" id="score-3">—</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- QUESTIONS TO ASK -->
+  <div class="section-head" style="margin-top:2.5rem;">
+    <h2>Questions to Ask Every Lender</h2>
+    <p>Print these out and bring them to every conversation — or send them via email before your first call.</p>
+  </div>
+
+  <div class="q-list">
+    <div class="q-item">
+      <div class="q-num">1</div>
+      <div class="q-text"><strong>Do you have a dedicated physician loan program, or is this a general product?</strong> You want a lender who understands your profile — not one treating it as a one-off exception.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">2</div>
+      <div class="q-text"><strong>How do you handle student loans in deferment or on an IDR plan?</strong> Specifically ask: do you use $0, 0.5% of the balance, or 1%? This single number can make or break qualification.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">3</div>
+      <div class="q-text"><strong>Can I be pre-approved based on a signed employment contract before I start working?</strong> If you're relocating for a new position, this is critical. Not all lenders allow it.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">4</div>
+      <div class="q-text"><strong>What is the maximum loan amount and minimum down payment for someone in my situation?</strong> Get the specific numbers — not the marketing ranges. Limits vary by location and profile.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">5</div>
+      <div class="q-text"><strong>Is PMI waived regardless of my down payment percentage?</strong> Confirm this explicitly — some programs have exceptions above certain loan amounts.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">6</div>
+      <div class="q-text"><strong>What is your current rate for a 30-year fixed physician loan, and how does that compare to conventional rates today?</strong> Always compare apples to apples — get the rate on the same day from multiple lenders.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">7</div>
+      <div class="q-text"><strong>What's your typical closing timeline, and can you meet my target date?</strong> Especially important for residency-to-attending transitions with firm move-in deadlines.</div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">8</div>
+      <div class="q-text"><strong>What fees should I expect beyond the rate? Origination, points, appraisal, title?</strong> A low rate can be offset by high closing costs — always get a Loan Estimate to compare total cost.</div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-head" style="margin-top:2.5rem;">
+    <h2>Smart Comparison Tips</h2>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h4>Get quotes on the same day</h4>
+      <p>Mortgage rates move daily. Compare quotes from different lenders on the same day so you're making an apples-to-apples comparison — not comparing last Tuesday to today.</p>
+    </div>
+    <div class="tip-card">
+      <h4>Ask for a Loan Estimate</h4>
+      <p>A standardized Loan Estimate (LE) form makes comparing total cost across lenders much easier. Lenders are required to provide one within 3 business days of a loan application.</p>
+    </div>
+    <div class="tip-card">
+      <h4>Don't let multiple inquiries scare you</h4>
+      <p>Multiple mortgage credit pulls within a 14–45 day window are generally counted as a single inquiry by credit bureaus. Shopping around won't significantly hurt your score.</p>
+    </div>
+    <div class="tip-card">
+      <h4>Look beyond the rate</h4>
+      <p>A lender who responds in minutes, has physician loan experience, and can close in 18 days may be worth a slightly higher rate — especially if you have a tight timeline.</p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p><strong>Disclaimer:</strong> This guide is for educational and organizational purposes only. MedPharmaConnect is not a lender, mortgage broker, or financial advisor. Program features, rates, and availability vary by lender and are subject to change. Always consult a licensed mortgage professional for advice specific to your situation.</p>
+  </div>
+
+</div>
+
+<script>
+  function styleSelect(el) {
+    el.className = 'rating-select';
+    const v = parseInt(el.value);
+    if (v === 2) el.classList.add('good');
+    else if (v === 1) el.classList.add('ok');
+    else if (v === 0) el.classList.add('bad');
+  }
+
+  function calcScore() {
+    const rows = document.querySelectorAll('#comparison-table tbody select');
+    const scores = [0, 0, 0];
+    const counts = [0, 0, 0];
+    rows.forEach((sel, i) => {
+      const col = i % 3;
+      const v = sel.value;
+      if (v !== '') {
+        scores[col] += parseInt(v);
+        counts[col]++;
+      }
+    });
+    for (let c = 0; c < 3; c++) {
+      const el = document.getElementById('score-' + (c + 1));
+      el.textContent = counts[c] > 0 ? scores[c] + '/26' : '—';
+    }
+  }
+</script>
+</body>
+</html>

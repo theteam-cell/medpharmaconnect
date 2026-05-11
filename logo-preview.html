@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice Path — Logo Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f4f7fb; padding: 48px 32px; }
+    h1 { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; margin-bottom: 40px; }
+    .grid { display: flex; flex-direction: column; gap: 48px; }
+    .option { background: white; border-radius: 16px; padding: 48px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .option-label { font-size: 12px; color: #94a3b8; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; }
+    .logo-row { display: flex; align-items: center; gap: 64px; flex-wrap: wrap; }
+    .on-dark { background: #003d5c; border-radius: 12px; padding: 32px 40px; }
+    .on-light { background: #eaf6fb; border-radius: 12px; padding: 32px 40px; }
+  </style>
+</head>
+<body>
+  <h1>Practice Path — Logo Options</h1>
+  <div class="grid">
+
+    <!-- OPTION A: House + Cross -->
+    <div class="option">
+      <div class="option-label">Option A — House with Medical Cross</div>
+      <div class="logo-row">
+
+        <!-- Default (on white) -->
+        <svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- House icon -->
+          <g>
+            <!-- Roof -->
+            <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+            <!-- Body -->
+            <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+            <!-- Door -->
+            <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+            <!-- Medical cross on roof area -->
+            <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+            <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          </g>
+          <!-- Wordmark -->
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">Practice</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Path</text>
+        </svg>
+
+        <!-- On dark -->
+        <div class="on-dark">
+          <svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <polygon points="26,6 6,24 46,24" fill="#00b4d8"/>
+              <rect x="10" y="24" width="32" height="22" fill="rgba(255,255,255,0.2)"/>
+              <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.7"/>
+              <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+              <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+            </g>
+            <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white">Practice</text>
+            <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#00b4d8">Path</text>
+          </svg>
+        </div>
+
+        <!-- On light blue -->
+        <div class="on-light">
+          <svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+              <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+              <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+              <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+              <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+            </g>
+            <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">Practice</text>
+            <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Path</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OPTION B: Stethoscope path -->
+    <div class="option">
+      <div class="option-label">Option B — Stethoscope Icon</div>
+      <div class="logo-row">
+
+        <svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stethoscope: earpieces, tube, chest piece -->
+          <!-- Left eartip -->
+          <circle cx="12" cy="8" r="3" fill="#0077b6"/>
+          <!-- Right eartip -->
+          <circle cx="36" cy="8" r="3" fill="#0077b6"/>
+          <!-- Tube down left -->
+          <path d="M12 11 Q12 26 24 26" stroke="#0077b6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Tube down right -->
+          <path d="M36 11 Q36 26 24 26" stroke="#0077b6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Tube down to chest piece -->
+          <path d="M24 26 Q24 40 32 44" stroke="#0096a0" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Chest piece circle -->
+          <circle cx="36" cy="44" r="6" fill="none" stroke="#0096a0" stroke-width="3"/>
+          <!-- Cross in chest piece -->
+          <rect x="34" y="41" width="4" height="1.5" rx="0.75" fill="#0096a0"/>
+          <rect x="35.25" y="39.75" width="1.5" height="4" rx="0.75" fill="#0096a0"/>
+          <!-- Wordmark -->
+          <text x="54" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">Practice</text>
+          <text x="54" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Path</text>
+        </svg>
+
+        <div class="on-dark">
+          <svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="3" fill="#00b4d8"/>
+            <circle cx="36" cy="8" r="3" fill="#00b4d8"/>
+            <path d="M12 11 Q12 26 24 26" stroke="#00b4d8" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M36 11 Q36 26 24 26" stroke="#00b4d8" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M24 26 Q24 40 32 44" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="36" cy="44" r="6" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="3"/>
+            <rect x="34" y="41" width="4" height="1.5" rx="0.75" fill="rgba(255,255,255,0.6)"/>
+            <rect x="35.25" y="39.75" width="1.5" height="4" rx="0.75" fill="rgba(255,255,255,0.6)"/>
+            <text x="54" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white">Practice</text>
+            <text x="54" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#00b4d8">Path</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OPTION C: Monogram PP with cross -->
+    <div class="option">
+      <div class="option-label">Option C — Monogram Badge</div>
+      <div class="logo-row">
+
+        <svg width="240" height="52" viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Badge circle -->
+          <circle cx="26" cy="26" r="24" fill="#003d5c"/>
+          <!-- PP letters -->
+          <text x="26" y="32" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white" text-anchor="middle">PP</text>
+          <!-- Small cross top right of badge -->
+          <rect x="38" y="6" width="6" height="2" rx="1" fill="#00b4d8"/>
+          <rect x="40" y="4" width="2" height="6" rx="1" fill="#00b4d8"/>
+          <!-- Wordmark -->
+          <text x="62" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">Practice</text>
+          <text x="62" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Path</text>
+        </svg>
+
+        <div class="on-dark">
+          <svg width="240" height="52" viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="24" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="26" cy="26" r="24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="26" y="32" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white" text-anchor="middle">PP</text>
+            <rect x="38" y="6" width="6" height="2" rx="1" fill="#00b4d8"/>
+            <rect x="40" y="4" width="2" height="6" rx="1" fill="#00b4d8"/>
+            <text x="62" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white">Practice</text>
+            <text x="62" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#00b4d8">Path</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OPTION D: Single line, minimal -->
+    <div class="option">
+      <div class="option-label">Option D — Clean Single Line with Cross Accent</div>
+      <div class="logo-row">
+
+        <svg width="260" height="40" viewBox="0 0 260 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cross accent -->
+          <rect x="0" y="13" width="16" height="4" rx="2" fill="#0096a0"/>
+          <rect x="6" y="7" width="4" height="16" rx="2" fill="#0096a0"/>
+          <!-- Wordmark single line -->
+          <text x="26" y="28" font-family="Merriweather, serif" font-weight="700" font-size="22" fill="#003d5c">Practice<tspan fill="#0096a0">Path</tspan></text>
+        </svg>
+
+        <div class="on-dark">
+          <svg width="260" height="40" viewBox="0 0 260 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="13" width="16" height="4" rx="2" fill="#00b4d8"/>
+            <rect x="6" y="7" width="4" height="16" rx="2" fill="#00b4d8"/>
+            <text x="26" y="28" font-family="Merriweather, serif" font-weight="700" font-size="22" fill="white">Practice<tspan fill="#00b4d8">Path</tspan></text>
+          </svg>
+        </div>
+
+        <div class="on-light">
+          <svg width="260" height="40" viewBox="0 0 260 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="13" width="16" height="4" rx="2" fill="#0096a0"/>
+            <rect x="6" y="7" width="4" height="16" rx="2" fill="#0096a0"/>
+            <text x="26" y="28" font-family="Merriweather, serif" font-weight="700" font-size="22" fill="#003d5c">Practice<tspan fill="#0096a0">Path</tspan></text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refinancing a Physician Mortgage in 2026: When the Math Works, When It Doesn't, and the 8-Week RAP Clock You Can't Ignore | MedPharmaConnect</title>
+  <meta name="description" content="Spring 2026 has rates ~46 bp below last spring. If you closed a physician mortgage at 7%+, here's how to run the break-even math, when a refi actually pays, and why the July 1 RAP cutover changes the calculus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .article-hero {
+      background: var(--navy);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,86,160,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .article-hero .eyebrow { color: rgba(255,255,255,0.6); }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .article-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .article-body {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .article-content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .article-content p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .article-content ul {
+      color: var(--text);
+      margin: 20px 0 20px 24px;
+      line-height: 1.8;
+    }
+    .article-content li { margin-bottom: 12px; font-size: 16px; }
+    .highlight-box {
+      background: rgba(0, 150, 160, 0.06);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 32px 0;
+    }
+    .highlight-box p { margin: 0; }
+    .highlight-box strong { color: var(--navy); }
+    .scenario-box {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      margin: 32px 0;
+      font-size: 14px;
+    }
+    .article-cta {
+      background: var(--light);
+      padding: 60px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .article-cta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .disclaimer {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 60px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .disclaimer strong { color: var(--text); }
+    .disclaimer-inline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .article-hero { padding: 60px 0 40px; }
+      .article-hero h1 { font-size: 1.5rem; }
+      .article-body { padding: 60px 0; }
+      .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .article-content h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" style="display:inline-block;line-height:0;">
+        <svg width="240" height="48" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+          <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#who-qualifies">Who Qualifies</a>
+        <a href="../index.html#benefits">Benefits</a>
+        <a href="../index.html#faq">FAQ</a>
+        <div class="nav-social">
+          <a href="#" class="nav-social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        </div>
+        <a href="../index.html#learn-more" class="btn btn-outline">Learn More</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="container article-hero-inner">
+      <span class="eyebrow">Physician Loan Tips</span>
+      <h1>Refinancing a Physician Mortgage in 2026: When the Math Works, When It Doesn't, and the 8-Week RAP Clock You Can't Ignore</h1>
+      <p>Spring 2026 has rates ~46 bp below last spring. If you closed a physician mortgage at 7%+, here's how to run the break-even math, when a refi actually pays, and why the July 1 RAP cutover changes the calculus.</p>
+      <div class="article-meta-bar">
+        <span class="meta-item">8 min read</span>
+        <span class="meta-item">May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-body">
+    <div class="container article-content">
+
+<p>If you closed a physician mortgage in 2024 or 2025 at a rate that starts with a 7, you've probably opened a rate-tracker app at least once this spring. The 30-year fixed averaged 6.30% the first week of May — about 46 basis points below the same week in 2025 — and physician-loan rates are running mid-6% to low-7% depending on lender, FICO, and file. The drop is real. The question is whether it's enough to refinance.</p>
+<p>The honest answer is "sometimes." Refis live or die on break-even math, and on a physician loan there are two calendars that matter: the rate calendar and the student-loan-policy calendar. Both clocks are ticking, and the second one — the July 1, 2026 transition to the new Repayment Assistance Plan (RAP) — is what most physicians aren't yet factoring into the decision.</p>
+<p>Here's how to think about it cleanly.</p>
+<h2>The break-even rule, plainly stated</h2>
+<p>A refi makes sense when the rate improvement recovers your closing costs inside the window you'll actually keep the loan. That's it. Everything else is decoration.</p>
+<p>Closing costs on a refi in 2026 generally run <strong>2%–5% of the loan amount</strong> — call it $10,000–$25,000 on a $500K physician mortgage, $15,000–$37,000 on a $750K jumbo. The arithmetic is straightforward: total costs divided by monthly P&I savings equals break-even in months.</p>
+<p>A 0.75% rate drop on a $500K, 30-year loan saves roughly $250 a month. Against $12,500 in closing costs, that's a 50-month break-even — just over four years. A 1.0% drop saves about $330 a month, dropping break-even to ~38 months. A 0.50% drop saves about $165 a month, pushing break-even past six years.</p>
+<p>The industry rule of thumb — <strong>need at least 0.75%–1.0% of rate improvement</strong> to make a physician-loan refi worthwhile — is really just this break-even math wearing a tie. Use the rule as a sanity check, not a verdict. Run your own numbers.</p>
+<h2>"No-cost" refis aren't free; they're a different bet</h2>
+<p>A no-closing-cost refi sounds like the easy answer, especially if you didn't bring much cash to close in the first place. The lender pays the costs in exchange for a higher rate — typically <strong>0.25% to 0.50% higher</strong> than the standard refi rate.</p>
+<p>That's a different bet, not a free lunch. If you plan to keep the home <strong>3–5 years</strong>, the no-cost structure usually wins because you don't amortize the upfront drag long enough to justify it. If you plan to stay <strong>7+ years</strong>, the standard refi at the lower rate almost always wins because the rate gap compounds month after month for the life of the loan.</p>
+<p>A useful frame: take your expected time-in-loan in months, multiply by the monthly savings difference between the two structures, and compare to the closing costs. If your time-in-loan is shorter than the break-even, no-cost wins. If it's longer, pay the costs.</p>
+<h2>Discount points: the same math in a different coat</h2>
+<p>Buying a discount point — paying 1% of the loan amount upfront to reduce the rate by ~0.25% — has a break-even of around five years on a $500K loan. The relevant question is whether you'd rather invest that point money elsewhere (a mortgage interest rate is roughly your guaranteed after-tax return on prepayment, and points are a forced version of that decision).</p>
+<p>For attendings who plan to stay put through the next two career moves, points often pencil. For residents and early-career fellows still figuring out where they'll land, points rarely do.</p>
+<h2>Three physician-loan-specific wrinkles to plan around</h2>
+<p><strong>One: some portfolio lenders won't refi their own physician loans.</strong> They originated the loan to win your private-banking relationship; they aren't eager to lower the rate. You may need to refi <em>out</em> of the original lender to capture the rate move. Get a quote from your existing lender, then shop three or four others — banks, credit unions, and at least one broker.</p>
+<p><strong>Two: the refi may push you off the physician-loan product entirely.</strong> Many physician-loan programs apply only at purchase. The refi version is conventional or jumbo, with conventional underwriting. That can be a feature, not a bug — you may pick up a lower rate by accepting standard underwriting now that you have an attending paycheck on the books, an appraisal showing equity, and a year of payment history. But it does mean re-running the file under different rules. Ask each lender whether the refi is into a physician product or a standard one.</p>
+<p><strong>Three: PMI math changes if your equity moved.</strong> If you put 0% or 5% down originally and home values held or rose, you may now be at 80% LTV or better — meaning a conventional refi without PMI is on the table for the first time. Get an estimate of current value before you assume you're stuck on a physician product.</p>
+<h2>The RAP clock: why this isn't only a rate decision</h2>
+<p>Here's the wrinkle most refi articles miss for physicians.</p>
+<p>On <strong>July 1, 2026</strong> — eight weeks from now — federal student-loan repayment changes. The Repayment Assistance Plan (RAP) replaces the older income-driven plans for new borrowers and reshapes the math for many existing ones. Payments under RAP run 1%–10% of AGI with <strong>no payment cap</strong> — for a $500K-AGI attending, the top tier works out to roughly $4,167 per month, well above what current IBR or PAYE would produce. PSLF residency credit may also stop counting under post-July rules for newer borrowers.</p>
+<p>For a refi, this matters because lenders use your monthly student-loan payment to calculate DTI, and DTI determines whether the refi gets approved at all. Several physician-loan lenders are already pre-underwriting <strong>dual DTIs</strong> — your current IDR payment and your projected RAP payment — to stress-test files. A refi that comfortably approves today on your current $850/mo IBR payment may struggle once the lender has to underwrite a $3,400/mo RAP payment.</p>
+<p>Two practical implications:</p>
+<p>If you're a high-earning attending on PSLF with a large student-loan balance and the rate-side math already pencils, <strong>closing before July 1 may be the cleaner play</strong>. You file under today's DTI rules, and your refi is final regardless of what happens to your loan payment two months later.</p>
+<p>If you're not on PSLF and your refi math is borderline, run the RAP scenario <em>first</em> — a higher mandatory student-loan payment can knock 5%–10% off your borrowing capacity, which sometimes ends a refi on its own.</p>
+<h2>A two-minute decision framework</h2>
+<p>Step one: pull your current note rate and outstanding balance. Step two: get a 30-minute quote from one bank, one credit union, and one mortgage broker — physician-loan lenders if available, conventional if equity has moved you above 80% LTV. Step three: subtract your current rate from each quoted rate. If the gap is below 0.50%, set it aside and revisit in 60 days; if it's 0.75%–1.0%+, run the break-even.</p>
+<p>For the break-even, divide total estimated closing costs by your projected monthly P&I savings. If the answer (in months) is shorter than the time you actually plan to keep this house, the refi pencils. If it's longer, it doesn't — at least not yet.</p>
+<p>Then layer the RAP scenario. If you're a PSLF attending with a high balance, ask whether closing before July 1 is feasible. If you're not on PSLF, ask each lender to model your file under both today's IDR payment and a projected RAP payment, and approve to the worse of the two.</p>
+<p>The rate move this spring is genuine, and for some doctors it's already enough. For others, the right answer is to keep the rate alert open and wait for late 2026 or 2027 — which most desk forecasts still expect to be the bigger refi window for the spring-2024 / 2025 origination cohort. Either way, the math doesn't change. Run it on paper before you run it through underwriting.</p>
+<p><em>Practice Path is informational only and not a lender. Always consult a qualified mortgage professional and tax advisor for your specific situation.</em></p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <div class="container">
+      <h3>Ready to Explore Your Options?</h3>
+      <p>MedPharmaConnect is your free, unbiased educational resource for physician mortgage loans. No lenders pay to be featured here.</p>
+      <a href="../index.html#learn-more" class="btn btn-primary">Explore the Guide</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    if (hamburger) hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

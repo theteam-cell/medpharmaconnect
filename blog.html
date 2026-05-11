@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Articles | MedPharmaConnect</title>
+  <meta name="description" content="Explore educational articles about physician mortgage loans, guides for doctors, dentists, pharmacists, and healthcare professionals." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Blog-specific styles */
+    .blog-hero {
+      background: var(--navy);
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,86,160,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .blog-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .blog-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Filter row */
+    .blog-filter-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+      padding: 40px 0;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .filter-btn.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    /* Article grid */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(15,39,68,0.12);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(46,139,110,0.1);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .article-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .article-desc {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+    }
+
+    .article-read-link {
+      display: inline-block;
+      font-weight: 600;
+      color: var(--blue);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .article-read-link:hover {
+      color: #154d8a;
+      text-decoration: underline;
+    }
+
+    /* Disclaimer */
+    .blog-disclaimer {
+      background: var(--light);
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 60px;
+    }
+
+    .blog-disclaimer strong {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .blog-filter-row {
+        gap: 8px;
+      }
+
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+
+      .article-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .article-card {
+        padding: 24px;
+      }
+
+      .article-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" style="display:inline-block;line-height:0;">
+        <svg width="240" height="48" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+          <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Articles</a>
+        <a href="index.html#who-qualifies">Who Qualifies</a>
+        <a href="index.html#benefits">Benefits</a>
+        <a href="index.html#faq">FAQ</a>
+        <div class="nav-social">
+          <a href="#" class="nav-social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="nav-social-icon" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+        <a href="index.html#learn-more" class="btn btn-outline">Learn More</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="container blog-hero-inner">
+      <span class="eyebrow">Knowledge Hub</span>
+      <h1>Resource Hub — Articles</h1>
+      <p>Practical guides and insights to help you make informed decisions about physician mortgage loans, student debt, and homeownership as a medical professional.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <!-- Filter buttons -->
+    <div class="blog-filter-row">
+      <button class="filter-btn active" data-filter="all">All Articles</button>
+      <button class="filter-btn" data-filter="guide">Guide</button>
+      <button class="filter-btn" data-filter="explainer">Explainer</button>
+      <button class="filter-btn" data-filter="checklist">Checklist</button>
+      <button class="filter-btn" data-filter="q&a">Q&A</button>
+    </div>
+
+    <!-- Article grid -->
+    <div class="article-grid" id="article-grid">
+      <!-- Article 1 -->
+      <a href="articles/article-physician-loan-vs-conventional.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Physician Loan vs. Conventional Mortgage: What's Actually Different?</h3>
+        <p class="article-desc">Understand the key differences in underwriting, PMI requirements, down payment flexibility, and how student debt is treated — and why it matters for your home purchase.</p>
+        <div class="article-meta">
+          <span>5 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="articles/article-student-loans-and-your-mortgage.html" class="article-card" data-category="explainer">
+        <span class="article-tag">Explainer</span>
+        <h3 class="article-title">How Student Loans Affect Your Mortgage — And How Physician Loans Change That</h3>
+        <p class="article-desc">Learn how debt-to-income ratios work, why traditional lenders are harsh on student debt, and how physician loan programs recalculate your true borrowing power.</p>
+        <div class="article-meta">
+          <span>4 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="articles/article-before-you-apply-checklist.html" class="article-card" data-category="checklist">
+        <span class="article-tag">Checklist</span>
+        <h3 class="article-title">What to Prepare Before Applying for a Physician Mortgage</h3>
+        <p class="article-desc">A practical checklist of documents, credit considerations, employment contract requirements, and what lenders look for during the application process.</p>
+        <div class="article-meta">
+          <span>3 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="articles/article-residents-and-fellows-guide.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Buying a Home as a Resident or Fellow: Is a Physician Loan Right for You?</h3>
+        <p class="article-desc">Explore the timing, contract-based lending strategies, and key pros and cons of buying early in your medical career when income is limited but future earning power is strong.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="articles/article-dentist-pharmacist-guide.html" class="article-card" data-category="explainer">
+        <span class="article-tag">Explainer</span>
+        <h3 class="article-title">You're Not a Physician — But You May Still Qualify for a Physician Loan</h3>
+        <p class="article-desc">Find out how dentists, pharmacists, veterinarians, and other doctorate-level healthcare professionals can access physician loan programs and what varies by lender.</p>
+        <div class="article-meta">
+          <span>4 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="articles/article-physician-loan-when-does-it-win.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Physician Mortgage vs. Conventional, FHA, and VA: When Does the Doctor Loan Actually Win?</h3>
+        <p class="article-desc">The physician mortgage isn't automatically the best loan for every doctor, dentist, or pharmacist. A clear-eyed comparison against conventional, FHA, and VA loans — and the scenarios where each one makes sense.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 7 -->
+      <a href="articles/article-credit-score-tips.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Credit Score Tips for Doctors, Dentists, and Pharmacists Applying for a Physician Mortgage</h3>
+        <p class="article-desc">A practical, 6-month playbook for nudging your FICO into the bracket where physician-mortgage lenders give you the best rate, the highest loan limit, and the cleanest underwriting path.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 8 -->
+      <a href="articles/article-arm-vs-fixed.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">ARM vs. Fixed on a Physician Mortgage: When the Discount Is Real Money — and When It's a Trap</h3>
+        <p class="article-desc">In spring 2026, physician-loan ARMs are pricing 50–100 bp below the 30-year fixed. Here's the four-question framework for deciding whether the discount actually fits your life, plus the cap-structure trap most doctors miss.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 9 -->
+      <a href="articles/article-no-pmi-advantage.html" class="article-card" data-category="explainer">
+        <span class="article-tag">Explainer</span>
+        <h3 class="article-title">The 'No PMI' Advantage on a Physician Mortgage — What It's Really Worth</h3>
+        <p class="article-desc">Physician mortgages skip private mortgage insurance even with little or no down payment. Here's what that actually saves you in dollars per month, where the trade-offs hide, and when conventional + PMI quietly wins.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>April 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 10 -->
+      <a href="articles/article-down-payment-strategy.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Down Payment Strategy for Physician Mortgages: When 0% Beats 20% — and When It Doesn't</h3>
+        <p class="article-desc">A decision framework for doctors, dentists, and pharmacists weighing 0%, 5%, 10%, and 20% down in the spring 2026 rate environment — physician loans famously allow 0% down with no PMI, but that doesn't always mean 0% is right.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 11 -->
+      <a href="articles/article-how-to-shop-physician-mortgage.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">How to Shop a Physician Mortgage in Spring 2026: The 5-Lender Strategy That Saves Doctors $25K–$50K</h3>
+        <p class="article-desc">On the same offer letter and the same FICO, physician-loan quotes are spreading 0.25%–0.50% apart this spring. Here's a step-by-step shopping process — what to ask, how to compare apples-to-apples, and why a broker plus a bank now beats a single loan officer.</p>
+        <div class="article-meta">
+          <span>8 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 12 -->
+      <a href="articles/article-variable-income-guide.html" class="article-card" data-category="explainer">
+        <span class="article-tag">Explainer</span>
+        <h3 class="article-title">How Physician Lenders Count Variable Income: RVUs, Bonuses, Moonlighting, Locums, and Partnership Distributions</h3>
+        <p class="article-desc">A practical guide to how physician-mortgage underwriters treat variable income in 2026 — base vs. RVU, sign-on bonuses, moonlighting, locum tenens, and partnership distributions — with a checklist of questions to ask every lender.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 13 -->
+      <a href="articles/article-timing-home-purchase.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Timing Your Home Purchase Around Residency, Fellowship, and the Attending Transition</h3>
+        <p class="article-desc">When to buy is often a harder question than how to qualify. A stage-by-stage decision framework for residents, fellows, and new attendings — including the spring 2026 windows that may not repeat.</p>
+        <div class="article-meta">
+          <span>8 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 14 -->
+      <a href="articles/article-two-physician-households.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Two-Physician Households: How to Structure the Mortgage When Both Spouses Practice Medicine</h3>
+        <p class="article-desc">Roughly four in ten married physicians are married to another physician or healthcare professional. The mortgage decisions are different — and the physician-loan playbook needs adjusting. Here's the strategy guide.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 15 -->
+      <a href="articles/article-refinancing-physician-mortgage.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Refinancing a Physician Mortgage in 2026: When the Math Works, When It Doesn't</h3>
+        <p class="article-desc">Spring 2026 has rates ~46 bp below last spring. If you closed a physician mortgage at 7%+, here's how to run the break-even math, when a refi actually pays, and why the July 1 RAP cutover changes the calculus.</p>
+        <div class="article-meta">
+          <span>8 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 16 -->
+      <a href="articles/article-pharmacists-physician-mortgage-guide.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Physician Mortgage Programs for Pharmacists: How the Product Works When You're a PharmD</h3>
+        <p class="article-desc">Pharmacists are eligible for most physician mortgage programs — but the product was designed around physician careers. Here's how the rules actually map to a PharmD, and what to ask when you shop.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 17 -->
+      <a href="articles/article-dentists-physician-mortgage-guide.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">What Dentists Should Know About Physician Mortgages That MDs Usually Don't Tell You</h3>
+        <p class="article-desc">Physician mortgage programs include dentists, but the product was written around MD career paths. Here's where the rules work differently for DDSs and DMDs — and how to shop accordingly.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 18 -->
+      <a href="articles/article-residents-qualify-before-attending.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">Why Residents and Fellows Can Often Qualify for a Physician Mortgage Before Their First Attending Paycheck</h3>
+        <p class="article-desc">Residents with a signed employment contract can often buy a home before day one of attendinghood. Here's how the underwriting actually works — and where it still trips people up.</p>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+
+      <!-- Article 19 -->
+      <a href="articles/article-7-costly-mistakes.html" class="article-card" data-category="guide">
+        <span class="article-tag">Guide</span>
+        <h3 class="article-title">7 Costly Mistakes Doctors, Dentists, and Pharmacists Make With a Physician Mortgage</h3>
+        <p class="article-desc">The physician mortgage is a powerful product — but the same features that make it forgiving also make it easy to misuse. Here are the seven mistakes we see most often, and how to avoid each one.</p>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>May 2026</span>
+        </div>
+        <span class="article-read-link">Read Article →</span>
+      </a>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="blog-disclaimer">
+      <strong>Disclaimer:</strong> MedPharmaConnect is an educational resource provided for informational purposes only. We are not a lender, mortgage broker, or financial advisor. The information on this site does not constitute professional financial, legal, or tax advice. Please consult with qualified professionals before making any financial decisions related to homeownership or loans.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <svg width="220" height="44" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#00b4d8"/>
+          <rect x="10" y="24" width="32" height="22" fill="rgba(255,255,255,0.2)"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.7"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="white">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#00b4d8">Connect</text>
+        </svg>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('is-open');
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('is-open');
+      });
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        articleCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.article-card').forEach(el => {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Physician Lenders Count Variable Income: RVUs, Bonuses, Moonlighting, Locums, and Partnership Distributions | MedPharmaConnect</title>
+  <meta name="description" content="A practical guide to how physician-mortgage underwriters treat variable income in 2026 — base vs. RVU, sign-on bonuses, moonlighting, locum tenens, and partnership distributions — with a checklist of questions to ask every lender before you commit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .article-hero {
+      background: var(--navy);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,86,160,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .article-hero .eyebrow { color: rgba(255,255,255,0.6); }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .article-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .article-body {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .article-content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .article-content p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .article-content ul {
+      color: var(--text);
+      margin: 20px 0 20px 24px;
+      line-height: 1.8;
+    }
+    .article-content li { margin-bottom: 12px; font-size: 16px; }
+    .highlight-box {
+      background: rgba(0, 150, 160, 0.06);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 32px 0;
+    }
+    .highlight-box p { margin: 0; }
+    .highlight-box strong { color: var(--navy); }
+    .scenario-box {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      margin: 32px 0;
+      font-size: 14px;
+    }
+    .article-cta {
+      background: var(--light);
+      padding: 60px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .article-cta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .disclaimer {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 60px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .disclaimer strong { color: var(--text); }
+    .disclaimer-inline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .article-hero { padding: 60px 0 40px; }
+      .article-hero h1 { font-size: 1.5rem; }
+      .article-body { padding: 60px 0; }
+      .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .article-content h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" style="display:inline-block;line-height:0;">
+        <svg width="240" height="48" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+          <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#who-qualifies">Who Qualifies</a>
+        <a href="../index.html#benefits">Benefits</a>
+        <a href="../index.html#faq">FAQ</a>
+        <div class="nav-social">
+          <a href="#" class="nav-social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        </div>
+        <a href="../index.html#learn-more" class="btn btn-outline">Learn More</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="container article-hero-inner">
+      <span class="eyebrow">Physician Loan Tips</span>
+      <h1>How Physician Lenders Count Variable Income: RVUs, Bonuses, Moonlighting, Locums, and Partnership Distributions</h1>
+      <p>A practical guide to how physician-mortgage underwriters treat variable income in 2026 — base vs. RVU, sign-on bonuses, moonlighting, locum tenens, and partnership distributions — with a checklist of questions to ask every lender before you commit.</p>
+      <div class="article-meta-bar">
+        <span class="meta-item">7 min read</span>
+        <span class="meta-item">May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-body">
+    <div class="container article-content">
+
+<p>Most articles about physician mortgages focus on the headline features: low or no down payment, no PMI, student loans calculated as IBR/PAYE rather than 1% of balance, and the ability to close on an employment contract before the first paycheck. All true. All useful.</p>
+<p>But there's a quieter underwriting question that decides how much house a doctor, dentist, or pharmacist actually qualifies for: <strong>how does the lender count income that isn't a flat base salary?</strong></p>
+<p>In 2026, with RVU-heavy contracts now standard in hospitalist, anesthesia, surgical, radiology, and pathology roles — and locum tenens and moonlighting common across specialties — the answer to that question can swing purchasing power by $50,000 to $150,000 on the same file. Here's the framework.</p>
+<h2>The default rule: only guaranteed base salary counts</h2>
+<p>Physician-mortgage underwriters start from a conservative baseline. If a contract specifies a base salary, that's what they'll use to calculate qualifying monthly income. Production bonuses, RVU pay, sign-on bonuses, call pay, and moonlighting income are excluded by default — even if the historical average of those payments is reliably six figures.</p>
+<p>This is the underwriting default for two reasons. First, base salary is the contractually guaranteed floor; everything above it is variable. Second, most physician-loan programs allow underwriting on an employment contract before the first pay stub exists, and there is no historical track record to lean on. The conservative path is to qualify on the contract floor.</p>
+<p>For a new attending whose total comp is $400K but whose base is $250K, that default treatment can knock the maximum loan amount down by 30%–40%.</p>
+<h2>The exception: a documented two-year history of variable pay</h2>
+<p>The standard way to get variable income to count is a documented two-year history. Bonus, RVU, commission, and similar variable income is typically</p>
+<p><strong>averaged across 24 months</strong> — pulled from W-2s, 1099s, and tax returns — and added back to qualifying monthly income.</p>
+<p>That two-year rule is why pure-RVU attendings sometimes hit a wall. Several physician-loan banks, when faced with a 100% RVU contract and no production history, will require two full tax returns at the new compensation structure before pre-approving the loan. That can effectively exclude residency graduates on pure-RVU contracts from the contract-only underwriting path that's supposed to be the program's headline benefit.</p>
+<p>The workaround: shop lenders. Underwriting standards on this exact question vary widely. Some lenders will count guaranteed minimum production targets inside an RVU contract as base. Others will accept a lower bound modeled from specialty MGMA medians. A few won't budge.</p>
+<h2>How specific income types typically get treated</h2>
+<p><strong>Sign-on bonus.</strong> Almost always excluded from monthly qualifying income, because it's a one-time payment. It can sometimes be applied to the down payment or closing-cost reserves if it's already deposited and seasoned in a verifiable account.</p>
+<p><strong>RVU / production bonus.</strong> Excluded by default; included with a 2-year history or, occasionally, if the contract specifies a guaranteed minimum.</p>
+<p><strong>Call pay and shift differentials.</strong> Treated like RVUs — typically need a documented history, averaged across 24 months.</p>
+<p><strong>Moonlighting income.</strong> Generally requires a 2-year history at the same level to count. New moonlighting income, even at a high hourly rate, is unlikely to help on a physician-mortgage application written in the first year.</p>
+<p><strong>Locum tenens income.</strong> Treated as 1099 self-employment. Most lenders want two years of tax returns and will average the net (after expenses) for qualifying income. Locum-only borrowers often have a harder time on physician programs than W-2 attendings with the same gross.</p>
+<p><strong>Partnership distributions and K-1 income.</strong> Counted off two years of K-1s, averaged. Be aware that retained earnings and capital contributions are not the same as distributions, and underwriters care about the line-item that actually hit the borrower's bank account.</p>
+<p><strong>Research stipends, fellowship supplements, and locum-while-resident income.</strong> Highly lender-specific. A few physician-friendly banks will count these on a case-by-case basis with a letter of expected continuation; most won't.</p>
+<h2>What to ask every lender before you commit</h2>
+<p>Before you compare rates, settle the income question. Ask each lender, in writing if possible, the following:</p>
+<p>How will you calculate qualifying monthly income on my contract? Will you use base only, base plus a fraction of expected RVU/bonus, or base plus a 2-year average? If I have less than 24 months of variable-pay history, do you have any path to count it? How do you treat sign-on bonuses, moonlighting, locum tenens, and call pay specifically? If I'm joining a partnership track, how do you handle K-1 distributions versus W-2 base?</p>
+<p>The lender that gives you the most generous <em>and documented</em> answer to those questions is often a better choice than the one quoting an eighth of a point lower on rate. A 0.125% rate difference on a $600K loan is roughly $50/month; the difference between a $600K and a $750K maximum loan amount is the difference between a house that fits and a house that doesn't.</p>
+<h2>Two practical moves</h2>
+<p>If you're more than a year out from buying, <strong>time your application to put more of your variable income on the books</strong>. Even one full tax year of RVU income documented on a W-2 helps. Two is better.</p>
+<p>If you're buying inside a year, <strong>collect contract amendments, offer letters, and any documentation of guaranteed minimums</strong> before you start shopping. A written guaranteed minimum on what looks like a pure-RVU contract can move an underwriter from "base only" to "base plus minimum" — and that single line of contract language can be worth six figures of additional buying power.</p>
+<p>Variable income isn't a problem on a physician mortgage. It's a question. Asking it before you fall in love with a house is what separates a smooth close from a re-priced offer.</p>
+<p><em>MedPharmaConnect is an educational resource, not a lender. Loan products, underwriting standards, and rates vary by lender, state, and individual circumstances. Always confirm details with a licensed mortgage professional before making a financial decision.</em></p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <div class="container">
+      <h3>Ready to Explore Your Options?</h3>
+      <p>MedPharmaConnect is your free, unbiased educational resource for physician mortgage loans. No lenders pay to be featured here.</p>
+      <a href="../index.html#learn-more" class="btn btn-primary">Explore the Guide</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    if (hamburger) hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

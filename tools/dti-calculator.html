@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physician DTI Calculator | MedPharmaConnect</title>
+  <meta name="description" content="Estimate your debt-to-income ratio the way physician mortgage lenders actually calculate it — with student loan flexibility built in." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1a2332; }
+
+    /* NAV */
+    .nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 1.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 700; color: #003d5c; text-decoration: none; }
+    .nav-logo span { color: #0096a0; }
+    .nav-back { color: #0077b6; font-size: 0.875rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+    .nav-back:hover { color: #003d5c; }
+
+    /* HERO */
+    .tool-hero { background: linear-gradient(135deg, #003d5c 0%, #0077b6 100%); color: #fff; padding: 3.5rem 1.5rem 2.5rem; text-align: center; }
+    .tool-hero .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #90e0ef; margin-bottom: 0.75rem; display: block; }
+    .tool-hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 0.75rem; }
+    .tool-hero p { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+
+    /* LAYOUT */
+    .tool-wrap { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 680px) { .tool-wrap { grid-template-columns: 1fr; } }
+
+    /* CARD */
+    .card { background: #fff; border-radius: 14px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .card h2 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: #003d5c; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 2px solid #e2e8f0; }
+
+    /* FORM */
+    .field { margin-bottom: 1.1rem; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; color: #4a5568; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .field-hint { font-size: 0.75rem; color: #718096; margin-bottom: 0.4rem; display: block; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    .input-wrap { position: relative; }
+    .input-wrap .prefix { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: #718096; font-weight: 500; font-size: 0.95rem; pointer-events: none; }
+    .input-wrap input { width: 100%; padding: 0.6rem 0.75rem 0.6rem 1.6rem; border: 1.5px solid #cbd5e0; border-radius: 8px; font-size: 0.95rem; font-family: 'Inter', sans-serif; color: #1a2332; transition: border-color 0.2s; background: #fafbfc; }
+    .input-wrap input:focus { outline: none; border-color: #0077b6; background: #fff; }
+
+    /* RADIO GROUP */
+    .radio-group { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem; }
+    .radio-opt { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e0; border-radius: 8px; transition: border-color 0.15s, background 0.15s; }
+    .radio-opt:hover { border-color: #0077b6; background: #f0f8ff; }
+    .radio-opt input[type="radio"] { margin-top: 3px; accent-color: #0077b6; flex-shrink: 0; }
+    .radio-opt-label { font-size: 0.875rem; color: #2d3748; line-height: 1.4; }
+    .radio-opt-label strong { display: block; font-weight: 600; color: #003d5c; }
+    .radio-opt.selected { border-color: #0077b6; background: #f0f8ff; }
+
+    /* SECTION DIVIDER */
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0096a0; margin: 1.5rem 0 0.75rem; }
+
+    /* RESULTS */
+    .results-card { background: #fff; border-radius: 14px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07); display: flex; flex-direction: column; gap: 1.25rem; }
+    .results-card h2 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: #003d5c; margin-bottom: 0; padding-bottom: 0.75rem; border-bottom: 2px solid #e2e8f0; }
+
+    .dti-display { text-align: center; padding: 1.5rem 1rem; background: #f8fafc; border-radius: 10px; }
+    .dti-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #718096; margin-bottom: 0.4rem; }
+    .dti-number { font-size: 3.5rem; font-weight: 700; font-family: 'Merriweather', serif; line-height: 1; margin-bottom: 0.25rem; transition: color 0.3s; }
+    .dti-number.good { color: #16a34a; }
+    .dti-number.caution { color: #d97706; }
+    .dti-number.high { color: #dc2626; }
+    .dti-badge { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.75rem; border-radius: 999px; margin-top: 0.35rem; }
+    .dti-badge.good { background: #dcfce7; color: #16a34a; }
+    .dti-badge.caution { background: #fef3c7; color: #d97706; }
+    .dti-badge.high { background: #fee2e2; color: #dc2626; }
+
+    .breakdown { display: flex; flex-direction: column; gap: 0.6rem; }
+    .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; }
+    .breakdown-row:last-child { border-bottom: none; }
+    .breakdown-row .label { color: #4a5568; }
+    .breakdown-row .value { font-weight: 600; color: #1a2332; }
+    .breakdown-row.total { font-weight: 700; font-size: 0.925rem; }
+    .breakdown-row.total .label { color: #003d5c; }
+    .breakdown-row.total .value { color: #003d5c; }
+
+    .insight-box { background: #f0f9ff; border-left: 4px solid #0077b6; border-radius: 0 8px 8px 0; padding: 1rem 1rem; }
+    .insight-box p { font-size: 0.85rem; line-height: 1.6; color: #2d3748; }
+    .insight-box strong { color: #003d5c; }
+
+    /* COMPARISON TABLE */
+    .comparison { display: flex; flex-direction: column; gap: 0; border: 1.5px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .comparison-header { display: grid; grid-template-columns: 1fr 1fr 1fr; background: #003d5c; color: #fff; font-size: 0.75rem; font-weight: 600; text-align: center; }
+    .comparison-header div { padding: 0.6rem 0.5rem; }
+    .comparison-row { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 0.82rem; text-align: center; border-top: 1px solid #e2e8f0; }
+    .comparison-row div { padding: 0.55rem 0.5rem; }
+    .comparison-row div:first-child { text-align: left; color: #4a5568; background: #f8fafc; font-weight: 500; }
+    .comparison-row:nth-child(even) { background: #fafbfc; }
+    .bad-val { color: #dc2626; font-weight: 600; }
+    .good-val { color: #16a34a; font-weight: 600; }
+
+    /* DISCLAIMER */
+    .disclaimer { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.25rem; margin-top: 2rem; }
+    .disclaimer p { font-size: 0.78rem; color: #718096; line-height: 1.6; }
+
+    /* FULL WIDTH BOTTOM */
+    .full-wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">MedPharma<span>Connect</span></a>
+    <a href="../index.html#resources" class="nav-back">← Back to Resources</a>
+  </div>
+</nav>
+
+<div class="tool-hero">
+  <span class="eyebrow">Interactive Tool</span>
+  <h1>Physician DTI Calculator</h1>
+  <p>Estimate your debt-to-income ratio the way physician mortgage lenders actually calculate it — with student loan flexibility built in.</p>
+</div>
+
+<div class="tool-wrap">
+
+  <!-- INPUT COLUMN -->
+  <div class="card">
+    <h2>Your Financial Snapshot</h2>
+
+    <div class="section-label">Monthly Income</div>
+
+    <div class="field">
+      <label>Gross Monthly Income <span class="field-hint">Before taxes. Use your expected attending salary if still in training.</span></label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="income" placeholder="e.g. 20000" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="section-label">Student Loans</div>
+
+    <div class="field">
+      <label>Total Student Loan Balance</label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="student-balance" placeholder="e.g. 280000" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Student Loan Status</label>
+      <div class="radio-group" id="loan-status-group">
+        <label class="radio-opt" onclick="selectRadio(this)">
+          <input type="radio" name="loan-status" value="payment" onchange="calculate()" />
+          <span class="radio-opt-label">
+            <strong>In Repayment</strong>
+            Enter your actual monthly payment below
+          </span>
+        </label>
+        <label class="radio-opt" onclick="selectRadio(this)">
+          <input type="radio" name="loan-status" value="idr" onchange="calculate()" />
+          <span class="radio-opt-label">
+            <strong>Income-Driven Repayment (IDR)</strong>
+            Many physician lenders use 0.5–1% of balance instead
+          </span>
+        </label>
+        <label class="radio-opt" onclick="selectRadio(this)">
+          <input type="radio" name="loan-status" value="deferred" onchange="calculate()" />
+          <span class="radio-opt-label">
+            <strong>In Deferment / Forbearance</strong>
+            Some physician lenders count $0 for this
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field" id="actual-payment-field">
+      <label>Actual Monthly Student Loan Payment</label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="student-payment" placeholder="e.g. 800" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="section-label">Monthly Debt Payments</div>
+
+    <div class="field">
+      <label>Estimated New Mortgage Payment <span class="field-hint">Principal + interest + taxes + insurance (PITI)</span></label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="mortgage" placeholder="e.g. 3500" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Car Loan / Lease Payment</label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="car" placeholder="0" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Credit Card Minimum Payments</label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="cc" placeholder="0" min="0" oninput="calculate()" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Other Monthly Debt (personal loans, etc.)</label>
+      <div class="input-wrap">
+        <span class="prefix">$</span>
+        <input type="number" id="other" placeholder="0" min="0" oninput="calculate()" />
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS COLUMN -->
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+    <div class="results-card">
+      <h2>Your DTI Estimate</h2>
+
+      <div class="dti-display">
+        <div class="dti-label">Physician Loan DTI</div>
+        <div class="dti-number good" id="dti-number">—</div>
+        <div class="dti-badge good" id="dti-badge">Enter your numbers</div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label">Mortgage payment</span>
+          <span class="value" id="br-mortgage">$—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Student loan counted</span>
+          <span class="value" id="br-student">$—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Car / other debts</span>
+          <span class="value" id="br-other">$—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Total monthly debts</span>
+          <span class="value" id="br-total">$—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Gross monthly income</span>
+          <span class="value" id="br-income">$—</span>
+        </div>
+      </div>
+
+      <div class="insight-box" id="insight-box">
+        <p>Fill in your numbers on the left to see your estimated DTI and what it means for physician loan qualification.</p>
+      </div>
+    </div>
+
+    <div class="results-card">
+      <h2>Traditional vs. Physician Loan</h2>
+      <div class="comparison">
+        <div class="comparison-header">
+          <div>Factor</div>
+          <div>Traditional Lender</div>
+          <div>Physician Lender</div>
+        </div>
+        <div class="comparison-row">
+          <div>Student Loans</div>
+          <div class="bad-val" id="comp-trad">Full payment</div>
+          <div class="good-val" id="comp-phys">0.5–1% of balance</div>
+        </div>
+        <div class="comparison-row">
+          <div>Your Trad. DTI</div>
+          <div class="bad-val" id="comp-trad-dti">—</div>
+          <div>—</div>
+        </div>
+        <div class="comparison-row">
+          <div>Your Phys. DTI</div>
+          <div>—</div>
+          <div class="good-val" id="comp-phys-dti">—</div>
+        </div>
+        <div class="comparison-row">
+          <div>PMI Required</div>
+          <div class="bad-val">Often yes</div>
+          <div class="good-val">No</div>
+        </div>
+        <div class="comparison-row">
+          <div>Contract Pre-Approval</div>
+          <div class="bad-val">Rarely</div>
+          <div class="good-val">Yes</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="full-wrap">
+  <div class="disclaimer">
+    <p><strong>Disclaimer:</strong> This calculator is for educational purposes only and does not represent an actual loan qualification assessment. DTI thresholds, student loan treatment, and program eligibility vary by lender. Physician mortgage programs typically allow DTIs up to 43–50%. Consult a licensed mortgage professional for guidance specific to your situation. MedPharmaConnect is not a lender or mortgage broker.</p>
+  </div>
+</div>
+
+<script>
+  function selectRadio(label) {
+    document.querySelectorAll('.radio-opt').forEach(l => l.classList.remove('selected'));
+    label.classList.add('selected');
+    setTimeout(calculate, 50);
+  }
+
+  function val(id) {
+    return parseFloat(document.getElementById(id).value) || 0;
+  }
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function calculate() {
+    const income = val('income');
+    const balance = val('student-balance');
+    const mortgage = val('mortgage');
+    const car = val('car');
+    const cc = val('cc');
+    const other = val('other');
+    const actualPayment = val('student-payment');
+
+    const status = document.querySelector('input[name="loan-status"]:checked')?.value || 'payment';
+
+    // Physician loan student loan treatment
+    let physStudentAmt = 0;
+    if (status === 'deferred') {
+      physStudentAmt = 0; // Many physician lenders count $0
+    } else if (status === 'idr') {
+      physStudentAmt = balance * 0.005; // 0.5% of balance
+    } else {
+      physStudentAmt = actualPayment; // actual payment
+    }
+
+    // Traditional lender student loan treatment (full payment or 1% of balance)
+    let tradStudentAmt = 0;
+    if (status === 'deferred' || status === 'idr') {
+      tradStudentAmt = balance * 0.01; // 1% of balance
+    } else {
+      tradStudentAmt = actualPayment;
+    }
+
+    const otherDebts = car + cc + other;
+    const physTotal = mortgage + physStudentAmt + otherDebts;
+    const tradTotal = mortgage + tradStudentAmt + otherDebts;
+
+    // Update breakdown
+    document.getElementById('br-mortgage').textContent = mortgage ? fmt(mortgage) : '$—';
+    document.getElementById('br-student').textContent = income ? fmt(physStudentAmt) : '$—';
+    document.getElementById('br-other').textContent = income ? fmt(otherDebts) : '$—';
+    document.getElementById('br-total').textContent = income ? fmt(physTotal) : '$—';
+    document.getElementById('br-income').textContent = income ? fmt(income) : '$—';
+
+    if (!income || !mortgage) {
+      document.getElementById('dti-number').textContent = '—';
+      document.getElementById('dti-badge').textContent = 'Enter your numbers';
+      document.getElementById('dti-badge').className = 'dti-badge good';
+      document.getElementById('dti-number').className = 'dti-number good';
+      document.getElementById('comp-trad-dti').textContent = '—';
+      document.getElementById('comp-phys-dti').textContent = '—';
+      document.getElementById('insight-box').innerHTML = '<p>Fill in your numbers on the left to see your estimated DTI and what it means for physician loan qualification.</p>';
+      return;
+    }
+
+    const physDTI = (physTotal / income * 100);
+    const tradDTI = (tradTotal / income * 100);
+
+    const physDTIStr = physDTI.toFixed(1) + '%';
+    const tradDTIStr = tradDTI.toFixed(1) + '%';
+
+    document.getElementById('dti-number').textContent = physDTIStr;
+    document.getElementById('comp-trad-dti').textContent = tradDTIStr;
+    document.getElementById('comp-phys-dti').textContent = physDTIStr;
+
+    // Color and badge
+    const numEl = document.getElementById('dti-number');
+    const badgeEl = document.getElementById('dti-badge');
+    let insight = '';
+
+    if (physDTI <= 36) {
+      numEl.className = 'dti-number good';
+      badgeEl.className = 'dti-badge good';
+      badgeEl.textContent = 'Strong — Likely Qualifies';
+      insight = `<p>A DTI of <strong>${physDTIStr}</strong> is well within most physician loan guidelines (typically up to 43–50%). Your profile looks strong for qualification. The difference between your traditional DTI (<strong>${tradDTIStr}</strong>) and physician loan DTI shows why these programs exist.</p>`;
+    } else if (physDTI <= 45) {
+      numEl.className = 'dti-number caution';
+      badgeEl.className = 'dti-badge caution';
+      badgeEl.textContent = 'Acceptable — Review Carefully';
+      insight = `<p>A DTI of <strong>${physDTIStr}</strong> falls within the acceptable range for many physician loan programs (up to 43–50%). Some lenders may require compensating factors like strong credit or reserves. Worth discussing with a physician loan specialist.</p>`;
+    } else {
+      numEl.className = 'dti-number high';
+      badgeEl.className = 'dti-badge high';
+      badgeEl.textContent = 'High — May Need Adjustment';
+      insight = `<p>A DTI of <strong>${physDTIStr}</strong> may exceed some physician loan program limits. Consider a larger down payment (to lower the mortgage), addressing other debts, or reviewing which lenders offer more flexibility. Your traditional DTI would be <strong>${tradDTIStr}</strong> — even higher.</p>`;
+    }
+
+    // Student loan comparison text
+    if (status === 'deferred') {
+      document.getElementById('comp-phys').textContent = '$0 (deferred)';
+    } else if (status === 'idr') {
+      document.getElementById('comp-phys').textContent = '0.5% of balance';
+    } else {
+      document.getElementById('comp-phys').textContent = 'Actual payment';
+    }
+
+    document.getElementById('insight-box').innerHTML = `<p>${insight.replace('<p>', '').replace('</p>', '')}</p>`;
+  }
+</script>
+</body>
+</html>

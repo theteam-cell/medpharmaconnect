@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARM vs. Fixed on a Physician Mortgage: When the 0.50%–1.00% Discount Is Real Money — and When It's a Trap | MedPharmaConnect</title>
+  <meta name="description" content="In spring 2026, physician-loan ARMs are pricing 50–100 bp below the 30-year fixed — the widest gap we've seen this cycle. Here's the four-question framework for deciding whether the discount actually fits your life, plus the cap-structure trap most doctors miss." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .article-hero {
+      background: var(--navy);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,86,160,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .article-hero .eyebrow { color: rgba(255,255,255,0.6); }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .article-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .article-body {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .article-content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .article-content p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .article-content ul {
+      color: var(--text);
+      margin: 20px 0 20px 24px;
+      line-height: 1.8;
+    }
+    .article-content li { margin-bottom: 12px; font-size: 16px; }
+    .highlight-box {
+      background: rgba(0, 150, 160, 0.06);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 32px 0;
+    }
+    .highlight-box p { margin: 0; }
+    .highlight-box strong { color: var(--navy); }
+    .scenario-box {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      margin: 32px 0;
+      font-size: 14px;
+    }
+    .article-cta {
+      background: var(--light);
+      padding: 60px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .article-cta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .disclaimer {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 60px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .disclaimer strong { color: var(--text); }
+    .disclaimer-inline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .article-hero { padding: 60px 0 40px; }
+      .article-hero h1 { font-size: 1.5rem; }
+      .article-body { padding: 60px 0; }
+      .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .article-content h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" style="display:inline-block;line-height:0;">
+        <svg width="240" height="48" viewBox="0 0 290 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,6 6,24 46,24" fill="#0077b6"/>
+          <rect x="10" y="24" width="32" height="22" fill="#0096a0"/>
+          <rect x="19" y="34" width="8" height="12" rx="1" fill="white" opacity="0.9"/>
+          <rect x="23" y="11" width="6" height="2" rx="1" fill="white"/>
+          <rect x="25" y="9" width="2" height="6" rx="1" fill="white"/>
+          <text x="58" y="24" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#003d5c">MedPharma</text>
+          <text x="58" y="44" font-family="Merriweather, serif" font-weight="700" font-size="18" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#who-qualifies">Who Qualifies</a>
+        <a href="../index.html#benefits">Benefits</a>
+        <a href="../index.html#faq">FAQ</a>
+        <div class="nav-social">
+          <a href="#" class="nav-social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="nav-social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        </div>
+        <a href="../index.html#learn-more" class="btn btn-outline">Learn More</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="container article-hero-inner">
+      <span class="eyebrow">Physician Loan Tips</span>
+      <h1>ARM vs. Fixed on a Physician Mortgage: When the 0.50%–1.00% Discount Is Real Money — and When It's a Trap</h1>
+      <p>In spring 2026, physician-loan ARMs are pricing 50–100 bp below the 30-year fixed — the widest gap we've seen this cycle. Here's the four-question framework for deciding whether the discount actually fits your life, plus the cap-structure trap most doctors miss.</p>
+      <div class="article-meta-bar">
+        <span class="meta-item">6 min read</span>
+        <span class="meta-item">May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-body">
+    <div class="container article-content">
+
+<h2>The pricing gap is back, and it's bigger than usual</h2>
+<p>Walk into a physician-mortgage application in May 2026 and you'll be quoted two very different numbers. The 30-year fixed is sitting in the mid-6% to low-7% range — call it 6.5%–7.0% on a typical attending file. The 5/6 and 7/6 ARMs on the same physician program are coming in 0.50% to 1.00% below that. On a $500,000 loan, that gap is roughly $200 to $400 a month during the fixed period — $12,000 to $24,000 over five years.</p>
+<p>That's not a rounding error. It's also not free money. The ARM discount is real because someone — you — is taking the rate-reset risk that the fixed-rate borrower paid a premium to avoid. The question isn't "is the discount real?" It is. The question is whether your specific life circumstances make that risk small or scary.</p>
+<h2>What you're actually buying with a physician ARM</h2>
+<p>A 5/6 ARM is fixed for 5 years, then adjusts every 6 months. A 7/6 ARM is fixed for 7. Most physician ARMs are indexed to the 30-day average SOFR with a margin around 3.50%, so at the first reset your new rate is roughly SOFR + 3.50%, subject to the cap structure.</p>
+<p>The caps matter more than the headline discount. A 5/6 ARM typically carries 2/1/5 caps: up to 2 percentage points at the first reset, 1 point per reset after that, with a 5-point lifetime ceiling. The 7/6 and 10/6 ARMs usually have 5/1/5 caps — bigger initial jump allowed, but you've had longer to plan for it.</p>
+<p>Translation: start at 5.75% on a 5/6 ARM and your rate can legally hit 7.75% on day one of the reset and 10.75% over the life of the loan. That's not a forecast. It's a contract term. Make peace with it before you sign.</p>
+<h2>The four questions that decide ARM vs. fixed</h2>
+<p><strong>1. How confident are you that you'll move or refinance before the fixed period ends?</strong></p>
+<p>This is the question that really matters. A PGY-2 buying near a training program who'll be 1,500 miles away in 4 years gets exactly what the 5/6 ARM was built for. A 38-year-old attending in a partnership-track group in their hometown is probably staying past year 7, and the ARM math gets ugly fast.</p>
+<p><strong>2. Can your budget absorb the worst-case reset?</strong></p>
+<p>Don't model the ARM at the teaser rate. Model it at the lifetime cap. If a 5.75% start and a 10.75% lifetime cap produces a payment your household couldn't carry, you don't want this product — even if you're "pretty sure" you'll move. Pretty sure isn't a financial plan.</p>
+<p><strong>3. Are you stockpiling the monthly savings, or spending them?</strong></p>
+<p>The honest reason ARMs work for some doctors and not others has nothing to do with rates. If the $300/month delta goes into a brokerage account or extra principal, you come out ahead even if rates rise. If it drifts into lifestyle, the ARM was just a way to qualify for more house.</p>
+<p><strong>4. What's the breakeven if you stay through the reset?</strong></p>
+<p>Divide the upfront monthly savings by the likely additional monthly cost after reset, and you'll get a rough number of years past the reset where you're still ahead. If the math says you're underwater 18 months after reset and you have any chance of staying that long, the fixed rate wins.</p>
+<h2>A residency / fellowship / attending overlay</h2>
+<p>For <strong>residents and fellows</strong> with a known relocation horizon under 5 years, the 5/6 ARM is often the right call — assuming you can absorb the worst case if you stay an unexpected extra year.</p>
+<p>For <strong>fellows with one foot out the door</strong> in 12–24 months, closing costs eat most of the benefit either way. Lean fixed and negotiate lender credits.</p>
+<p>For <strong>attendings settling in long-term</strong>, the fixed rate is usually the right answer in spring 2026, even at the premium. Twenty-five years of payment certainty is worth real money when the alternative is a payment-shock conversation in your fifties.</p>
+<p>For <strong>two-physician households</strong> who can comfortably carry the worst-case reset on one income, the ARM is more interesting — the discount is real, and the safety net is built in.</p>
+<h2>One spring 2026 wrinkle</h2>
+<p>The Repayment Assistance Plan (RAP) cutover hits federal student loans on July 1, with payments calculated as 1–10% of AGI rather than discretionary income. For attendings, that math runs higher than current PAYE/IBR for many borrowers, and lenders are starting to pre-underwrite both numbers to stress-test approval. If you're on the ARM/fixed fence and you're carrying significant federal student debt, ask your loan officer to run your DTI under both your current plan and the RAP-equivalent payment. The right product is the one that still works after July 1.</p>
+<h2>The bottom line</h2>
+<p>The 0.50%–1.00% ARM discount in spring 2026 is real, and for the right borrower it's meaningful money. But the right borrower is narrower than the marketing makes it sound: someone with a credible exit before the reset, a budget that survives the worst case, the discipline to bank the savings, and clear eyes about the cap structure. If that's you, run the ARM. If not, pay the premium and sleep at night — that's also a financial plan.</p>
+<p><em>This article is for educational purposes only and is not financial, tax, or legal advice. Loan terms, rates, and program features vary by lender and change frequently.</em></p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <div class="container">
+      <h3>Ready to Explore Your Options?</h3>
+      <p>MedPharmaConnect is your free, unbiased educational resource for physician mortgage loans. No lenders pay to be featured here.</p>
+      <a href="../index.html#learn-more" class="btn btn-primary">Explore the Guide</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    if (hamburger) hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

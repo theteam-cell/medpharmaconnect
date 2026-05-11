@@ -1,0 +1,5 @@
+.DS_Store
+netlify-deploy.html
+practicepath-deploy.zip
+*.zip
+push-to-github.sh
