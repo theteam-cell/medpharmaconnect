@@ -3,3 +3,6 @@ netlify-deploy.html
 practicepath-deploy.zip
 *.zip
 push-to-github.sh
+
+# Local Netlify folder
+.netlify
