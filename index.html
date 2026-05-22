@@ -64,6 +64,7 @@
         <a href="#what-is-it">What Is It?</a>
         <a href="#who-qualifies">Who Qualifies</a>
         <a href="#benefits">Benefits</a>
+        <a href="blog.html">Articles</a>
         <a href="#faq">FAQ</a>
         <a href="#resources">Resources</a>
         <div class="nav-social">
@@ -362,9 +363,11 @@
     <div class="container cta-inner">
       <h2>Ready to Take the Next Step?</h2>
       <p>MedPharmaConnect is an educational resource — not a lender. But if you're ready to explore your options, we can connect you with loan officers who specialize in physician mortgage products.</p>
-      <form class="cta-form" name="contact" netlify>
+      <form class="cta-form" name="contact" method="POST" netlify>
+        <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="Your email" required />
+        <input type="tel" name="phone" placeholder="Phone number (optional)" />
         <select name="designation">
           <option value="" disabled selected>Your designation</option>
           <option>MD</option>
@@ -429,6 +432,20 @@
           <option>West Virginia</option>
           <option>Wisconsin</option>
           <option>Wyoming</option>
+        </select>
+        <select name="price_range">
+          <option value="" disabled selected>Estimated purchase price</option>
+          <option>Under $500K</option>
+          <option>$500K – $750K</option>
+          <option>$750K – $1M</option>
+          <option>Over $1M</option>
+        </select>
+        <select name="timeline">
+          <option value="" disabled selected>When are you looking to buy?</option>
+          <option>Within 30 days</option>
+          <option>1–3 months</option>
+          <option>3–6 months</option>
+          <option>Just exploring</option>
         </select>
         <button type="submit" class="btn btn-primary">Send Me More Info</button>
       </form>
