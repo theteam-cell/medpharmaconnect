@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block deploy/build artifacts
+Disallow: /netlify-deploy.html
+Disallow: /.netlify/
+
+Sitemap: https://medpharmaconnect.com/sitemap.xml
