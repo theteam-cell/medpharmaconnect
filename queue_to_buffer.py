@@ -39,6 +39,41 @@ SKIP_PLATFORMS = []
 # Only queue posts for these specific scheduled dates (leave empty to queue all)
 ONLY_DATES = set()
 
+# State file tracking which (source-date, platform) posts have already been
+# queued, so re-runs (e.g. the daily scheduled task) skip them instead of
+# creating duplicates. Lives alongside the social posts; safe to delete to
+# force a full re-queue.
+STATE_FILE = SOCIAL_DIR / ".buffer_queued.json"
+
+# ── STATE TRACKING ───────────────────────────────────────────────────────────
+
+def queue_key(source_date, platform):
+    """Stable identifier for a single queued post."""
+    return f"{source_date}|{platform}"
+
+
+def load_state():
+    """Return the set of queue keys already posted to Buffer."""
+    if not STATE_FILE.exists():
+        return set()
+    try:
+        data = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        return set(data.get("queued", []))
+    except (json.JSONDecodeError, OSError):
+        print(f"⚠️   Could not read state file {STATE_FILE.name}; "
+              "treating all posts as un-queued.")
+        return set()
+
+
+def save_state(state):
+    """Persist the set of queued keys to disk."""
+    payload = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "queued": sorted(state),
+    }
+    STATE_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
 # ── GRAPHQL HELPERS ──────────────────────────────────────────────────────────
 
 def gql(api_key, query, variables=None):
@@ -187,14 +222,22 @@ def parse_social_file(filepath):
     return posts
 
 
+def file_date(filepath):
+    """Extract the YYYY-MM-DD date string from a social-YYYY-MM-DD.md filename.
+    Falls back to the bare filename stem if the pattern doesn't match."""
+    m = re.search(r"(\d{4}-\d{2}-\d{2})", filepath.stem)
+    return m.group(1) if m else filepath.stem
+
+
 def load_all_posts():
-    """Load and parse all social post files, sorted by date."""
+    """Load and parse all social post files, sorted by date.
+    Returns a list of (source_date, {platform: text}) tuples."""
     files = sorted(SOCIAL_DIR.glob("social-*.md"))
     all_posts = []
     for f in files:
         posts = parse_social_file(f)
         if posts:
-            all_posts.append(posts)
+            all_posts.append((file_date(f), posts))
     return all_posts
 
 
@@ -242,28 +285,50 @@ def main():
     all_posts = load_all_posts()
     print(f"    Loaded {len(all_posts)} days of posts.")
 
-    # Schedule starting from tomorrow
+    # Load dedup state so we never re-queue a post that was queued on a
+    # previous run (critical for the daily scheduled task).
+    state = load_state()
+    if state:
+        print(f"    {len(state)} post(s) already queued in prior runs "
+              "— these will be skipped.")
+
+    # Schedule starting from tomorrow. Only files that actually have new,
+    # eligible posts consume a calendar day, so skipped/already-queued files
+    # don't leave gaps in the schedule.
     start_date = datetime.now(timezone.utc).date() + timedelta(days=1)
     total_queued = 0
     total_failed = 0
+    total_skipped = 0
+    new_day_index = 0
 
     print()
-    print(f"📅  Scheduling posts starting {start_date}...")
+    print(f"📅  Scheduling new posts starting {start_date}...")
     print()
 
-    for day_offset, day_posts in enumerate(all_posts):
-        post_date = start_date + timedelta(days=day_offset)
-
+    for source_date, day_posts in all_posts:
+        # Determine which posts in this file are eligible and not yet queued.
+        pending = []
         for platform, text in day_posts.items():
             if platform not in channel_map:
                 continue  # Skip platforms not connected in Buffer
             if platform not in PLATFORM_TIMES:
                 continue
             if platform in SKIP_PLATFORMS:
-                continue  # Already queued
-            if ONLY_DATES and str(post_date) not in ONLY_DATES:
+                continue
+            if ONLY_DATES and source_date not in ONLY_DATES:
                 continue  # Date filter active
+            if queue_key(source_date, platform) in state:
+                total_skipped += 1
+                continue  # Already queued on a prior run
+            pending.append((platform, text))
 
+        if not pending:
+            continue  # Nothing new for this file — don't consume a calendar day
+
+        post_date = start_date + timedelta(days=new_day_index)
+        new_day_index += 1
+
+        for platform, text in pending:
             channel_id = channel_map[platform]
             time_str = PLATFORM_TIMES[platform]
             due_at = f"{post_date}T{time_str}Z"
@@ -278,7 +343,9 @@ def main():
             try:
                 ok, info = create_post(api_key, channel_id, text, due_at, service=platform)
                 if ok:
-                    print(f"  ✅  {post_date} {platform:<12} → queued for {info}")
+                    print(f"  ✅  {post_date} {platform:<12} → queued for {info} (src {source_date})")
+                    state.add(queue_key(source_date, platform))
+                    save_state(state)  # Persist immediately so a mid-run crash can't duplicate
                     total_queued += 1
                 else:
                     print(f"  ❌  {post_date} {platform:<12} → error: {info}")
@@ -289,7 +356,8 @@ def main():
 
     print()
     print("=" * 60)
-    print(f"  Done! Queued: {total_queued}  |  Failed: {total_failed}")
+    print(f"  Done! Queued: {total_queued}  |  Skipped (already queued): {total_skipped}  |  Failed: {total_failed}")
+    print(f"  State file: {STATE_FILE}")
     print(f"  View your queue at: https://publish.buffer.com")
     print("=" * 60)
 

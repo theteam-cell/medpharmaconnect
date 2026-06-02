@@ -1,4 +1,6 @@
 .DS_Store
+.env
+content/social/.buffer_queued.json
 netlify-deploy.html
 practicepath-deploy.zip
 *.zip
