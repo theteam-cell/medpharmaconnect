@@ -109,6 +109,30 @@ Tip: run `git diff --stat` first to review the scope before committing.
 
 ---
 
+## Addendum — 2026-06-02 (interactive follow-up with Steve)
+
+**Scope decisions from Steve:** CRNA and NP/PA topics are dropped — MedPharmaConnect stays scoped to physicians, dentists, and pharmacists. Two publish-ready HTML articles were written and wired in.
+
+**New articles published (HTML, full template, schema + CTA + internal links):**
+
+1. `articles/article-rap-payment-dti-physician-mortgage.html` — *"RAP and Your Physician-Mortgage DTI: What Changes July 1, 2026."* Title 62 chars, meta 156, single H1, 8 internal links incl. DTI calculator. Funnels to the DTI tool.
+2. `articles/article-physician-arm-decision-2026.html` — *"Should a Physician Take an ARM in 2026? A Decision Guide."* Title 56 chars, meta 156, single H1, 9 internal links incl. DTI calculator.
+
+Both pass JSON-LD validation (Article + Breadcrumb, 0 invalid). All facts sourced from the research below — no invented statistics.
+
+**Wiring:** Ran `seo_agent.py` (now 43 articles, 47-URL sitemap, lead CTA + related blocks injected on both). Added both as cards at the top of `blog.html`. Added durable contextual inbound links to both from `article-arm-vs-fixed.html` (the related-block auto-linking already gives RAP 10 inbound and the ARM guide 3 inbound).
+
+**Auto-push investigation (Steve's request):**
+
+- No git / GitHub / Netlify connector exists in the MCP registry, so there is no managed-connector path today.
+- However, the repo's git remote (`origin`) already has a GitHub personal-access token embedded in the URL, so a non-interactive `git push` **works from an automated run with no extra auth**. The scheduled SEO task could be updated to run `git add -A && git commit && git push` as a final step.
+- **Recommendation:** technically straightforward to enable, but it removes the human review gate before live deploys. Suggest either (a) leave manual, or (b) enable auto-push only for the script's own idempotent changes (sitemap/robots/schema) and keep new-article publishing manual. Happy to wire whichever you choose into the scheduled task.
+- ⚠️ **Security flag:** the GitHub token is stored in plaintext in `.git/config`. If this repo is ever shared or the config leaked, the token grants push access. Recommend rotating it and switching to a credential helper or SSH key, or a Netlify build hook, before automating.
+
+**Note:** Steve confirmed he already ran the manual `git push` for the earlier (2026-06-01) batch.
+
+---
+
 ### Sources (opportunity research)
 
 - [SAVE vs RAP: Student loan repayment changes in 2026 — Earnest](https://www.earnest.com/blog/save-vs-rap-student-loan-repayment-2026)
