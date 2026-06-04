@@ -1,0 +1,48 @@
+name: Weekly SEO maintenance
+
+# Runs the idempotent SEO maintenance script on GitHub's runners, then commits
+# and pushes any changes it makes (sitemap.xml, robots.txt, canonical/OG/schema,
+# lead CTA, related-article links). New ARTICLES are not created here — those are
+# authored locally and pushed manually, preserving a human review gate on content.
+#
+# Uses the built-in GITHUB_TOKEN (no personal access token in the repo).
+
+on:
+  schedule:
+    # Mondays 14:10 UTC (~10:10am ET) — just after the local weekly SEO agent.
+    - cron: "10 14 * * 1"
+  workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-maintenance
+  cancel-in-progress: false
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run SEO maintenance script
+        run: python3 "MPC SEO/seo_agent.py" "."
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name  "seo-maintenance-bot"
+          git config user.email "actions@github.com"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes — nothing to deploy."
+            exit 0
+          fi
+          git add -A
+          git commit -m "Automated SEO maintenance (sitemap, robots, schema, links)"
+          git push
