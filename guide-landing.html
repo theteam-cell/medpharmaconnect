@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Physician Home-Buying Guide | MedPharmaConnect</title>
+  <meta name="description" content="Download the free Physician Home-Buying Guide — what doctors, dentists, and pharmacists should understand about physician mortgage loans before buying a home. Educational, no sales pitch." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Landing-page-specific styles (scoped with .lp- prefixes; relies on styles.css for vars/fonts) -->
+  <style>
+    .lp-hero { background: var(--navy); position: relative; overflow: hidden; padding: 72px 0 88px; }
+    .lp-hero .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse at 75% 30%, rgba(26,86,160,0.35) 0%, transparent 60%); pointer-events:none; }
+    .lp-grid { display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items:center; position:relative; z-index:1; }
+    .lp-hero .eyebrow { color: rgba(255,255,255,0.6); }
+    .lp-hero h1 { font-size: clamp(1.9rem, 3vw, 2.5rem); color: var(--white); margin-bottom: 18px; }
+    .lp-hero .lp-sub { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin-bottom: 28px; }
+    .lp-points { list-style:none; margin: 0 0 28px; }
+    .lp-points li { position:relative; padding-left: 30px; margin-bottom: 12px; color: rgba(255,255,255,0.82); font-size: 15px; }
+    .lp-points li::before { content:'✓'; position:absolute; left:0; top:0; color: var(--accent); font-weight:700; font-size: 16px; }
+    .lp-trust { display:flex; align-items:center; gap:10px; color: rgba(255,255,255,0.55); font-size: 13px; }
+    .lp-trust svg { width:16px; height:16px; flex-shrink:0; }
+
+    /* Form card */
+    .lp-card { background: var(--white); border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.35); padding: 32px 30px; }
+    .lp-cover { display:flex; align-items:center; gap:14px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .lp-cover-thumb { flex:0 0 64px; height:84px; border-radius:6px; background: linear-gradient(160deg, var(--navy), var(--blue)); position:relative; box-shadow: 0 6px 16px rgba(15,39,68,0.25); overflow:hidden; }
+    .lp-cover-thumb::before { content:''; position:absolute; left:0; top:0; bottom:0; width:6px; background: var(--accent); }
+    .lp-cover-thumb span { position:absolute; left:10px; right:8px; bottom:9px; color:#fff; font-family:'Merriweather',serif; font-size:9px; line-height:1.25; font-weight:700; }
+    .lp-cover-text h2 { font-size: 1.15rem; color: var(--navy); margin-bottom: 4px; }
+    .lp-cover-text p { font-size: 13px; color: var(--muted); }
+
+    .lp-form { display:flex; flex-direction:column; gap: 12px; }
+    .lp-form label { font-size: 12px; font-weight:600; color: var(--navy); margin-bottom:-6px; }
+    .lp-form input, .lp-form select {
+      padding: 13px 15px; border-radius: 8px; border: 1px solid var(--border);
+      background: #fff; color: var(--text); font-size: 15px; font-family:'Inter',sans-serif; outline:none; transition: border-color .2s, box-shadow .2s;
+    }
+    .lp-form input:focus, .lp-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,86,160,0.12); }
+    .lp-form select:invalid { color: var(--muted); }
+    .lp-form .btn { width:100%; justify-content:center; margin-top: 6px; }
+    .lp-honey { display:none !important; }
+    .lp-fineprint { font-size: 12px; color: var(--muted); text-align:center; margin-top: 10px; line-height:1.5; }
+
+    /* Success state */
+    .lp-success { display:none; text-align:center; padding: 12px 4px; }
+    .lp-success.show { display:block; }
+    .lp-form-wrap.hide { display:none; }
+    .lp-check { width:56px; height:56px; border-radius:50%; background: rgba(46,139,110,0.12); color: var(--accent); display:flex; align-items:center; justify-content:center; margin: 4px auto 16px; font-size: 28px; }
+    .lp-success h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 10px; }
+    .lp-success p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+
+    @media (max-width: 900px) {
+      .lp-grid { grid-template-columns: 1fr; gap: 40px; }
+      .lp-hero { padding: 56px 0 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" style="display:inline-block;line-height:0;" aria-label="MedPharmaConnect home">
+        <svg width="240" height="48" viewBox="0 0 260 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="30" width="36" height="22" rx="2" fill="#003d5c"/>
+          <rect x="21" y="38" width="10" height="14" rx="1" fill="#0096a0"/>
+          <rect x="10" y="33" width="7" height="6" rx="1" fill="#0077b6" opacity="0.8"/>
+          <rect x="35" y="33" width="7" height="6" rx="1" fill="#0077b6" opacity="0.8"/>
+          <path d="M8,31 Q2,22 9,14" fill="none" stroke="#0096a0" stroke-width="3" stroke-linecap="round"/>
+          <path d="M9,14 Q26,3 43,14" fill="none" stroke="#0096a0" stroke-width="3" stroke-linecap="round"/>
+          <path d="M43,14 Q50,22 44,31" fill="none" stroke="#0096a0" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="5" cy="32" r="3" fill="none" stroke="#0096a0" stroke-width="2.5"/>
+          <circle cx="47" cy="32" r="3" fill="none" stroke="#0096a0" stroke-width="2.5"/>
+          <circle cx="26" cy="7" r="6" fill="#003d5c" stroke="#0096a0" stroke-width="2"/>
+          <circle cx="26" cy="7" r="3" fill="#0077b6"/>
+          <circle cx="26" cy="7" r="1.5" fill="#0096a0"/>
+          <text x="60" y="24" font-family="Merriweather, serif" font-weight="700" font-size="17" fill="#003d5c">MedPharma</text>
+          <text x="60" y="44" font-family="Merriweather, serif" font-weight="700" font-size="17" fill="#0096a0">Connect</text>
+        </svg>
+      </a>
+      <nav>
+        <a href="index.html">← Back to site</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / OFFER -->
+  <section class="lp-hero">
+    <div class="hero-bg"></div>
+    <div class="container lp-grid">
+
+      <!-- Left: the pitch -->
+      <div class="lp-copy">
+        <span class="eyebrow">Free Guide · For MD · DO · DDS · DMD · PharmD</span>
+        <h1>The Physician Home-Buying Guide</h1>
+        <p class="lp-sub">What doctors, dentists, and pharmacists should understand <em>before</em> buying a home — the options, the tradeoffs, and the mistakes to avoid. Educational, independent, and free.</p>
+        <ul class="lp-points">
+          <li>How physician loans treat student debt — and why it matters for your DTI</li>
+          <li>Low- and no-down-payment programs, and how PMI fits in</li>
+          <li>The honest tradeoffs (including when a conventional loan wins)</li>
+          <li>Timing: buying during residency vs. as a new attending</li>
+          <li>A readiness checklist + the exact questions to ask a lender</li>
+        </ul>
+        <div class="lp-trust">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l9 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4zm0 2.18L5 6.3v4.7c0 4.52 3.05 8.77 7 9.93 3.95-1.16 7-5.41 7-9.93V6.3l-7-3.12z"/></svg>
+          No spam. Unsubscribe anytime. We're an educational resource — not a lender.
+        </div>
+      </div>
+
+      <!-- Right: the capture card -->
+      <div class="lp-card">
+        <div class="lp-form-wrap" id="lpFormWrap">
+          <div class="lp-cover">
+            <div class="lp-cover-thumb"><span>Physician Home-Buying Guide</span></div>
+            <div class="lp-cover-text">
+              <h2>Get the free guide</h2>
+              <p>Enter your details and we'll send it straight to your inbox.</p>
+            </div>
+          </div>
+
+          <!--
+            CAPTURE FORM
+            In production this posts to FormSubmit (same service your main site uses).
+            Two ways to deliver the guide:
+              (A) Native: keep the action + _next below; FormSubmit redirects to the guide/thank-you page.
+              (B) AJAX (used here): the script intercepts submit, posts in the background,
+                  and shows the success panel without leaving the page.
+            Replace the email in the action/endpoint with your inbox, and set the download
+            link (#lpDownload below) to your hosted guide PDF.
+          -->
+          <form class="lp-form" id="lpForm"
+                action="https://formsubmit.co/theteam@medpharmaconnect.com" method="POST">
+            <input type="hidden" name="_subject" value="New Lead — Physician Home-Buying Guide download" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://medpharmaconnect.com/thank-you.html" />
+            <input type="hidden" name="lead_source" value="Physician Home-Buying Guide LP" />
+            <input type="text" name="_honey" class="lp-honey" tabindex="-1" autocomplete="off" />
+
+            <label for="lpName">Name</label>
+            <input id="lpName" type="text" name="name" placeholder="Your name" required />
+
+            <label for="lpEmail">Email</label>
+            <input id="lpEmail" type="email" name="email" placeholder="you@email.com" required />
+
+            <label for="lpDesignation">Designation</label>
+            <select id="lpDesignation" name="designation" required>
+              <option value="" disabled selected>Select your degree</option>
+              <option>MD</option>
+              <option>DO</option>
+              <option>DDS</option>
+              <option>DMD</option>
+              <option>PharmD / Pharmacist</option>
+              <option>OD (Optometrist)</option>
+              <option>DPM (Podiatrist)</option>
+              <option>Other</option>
+            </select>
+
+            <label for="lpTimeline">When are you looking to buy? (optional)</label>
+            <select id="lpTimeline" name="timeline">
+              <option value="" disabled selected>Select a timeline</option>
+              <option>Within 3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Just researching</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Send me the guide</button>
+          </form>
+          <p class="lp-fineprint">By submitting, you agree to receive educational emails from MedPharmaConnect. We never sell your information.</p>
+        </div>
+
+        <!-- Success state -->
+        <div class="lp-success" id="lpSuccess" aria-live="polite">
+          <div class="lp-check">✓</div>
+          <h2>Your guide is on its way!</h2>
+          <p>Check your inbox (and spam folder, just in case). You can also grab it right now:</p>
+          <a id="lpDownload" class="btn btn-primary" href="physician-home-buying-guide.pdf" download>Download the guide (PDF)</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>MedPharmaConnect is an independent educational resource. It is not a lender, mortgage broker, or financial advisor. Content is for informational purposes only and does not constitute financial or legal advice. All loan programs, rates, and terms are subject to lender approval and may vary by lender and state. Consult a licensed mortgage professional for guidance specific to your situation.</p>
+      <p class="footer-copy">&copy; 2026 MedPharmaConnect. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('lpForm');
+      var wrap = document.getElementById('lpFormWrap');
+      var success = document.getElementById('lpSuccess');
+
+      function showSuccess() {
+        wrap.classList.add('hide');
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        // AJAX submit to FormSubmit. On success OR network failure (e.g. local preview)
+        // we still reveal the success panel so the experience is visible.
+        // For production you may prefer to show an error on failure instead.
+        fetch('https://formsubmit.co/ajax/theteam@medpharmaconnect.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+            designation: form.designation.value,
+            timeline: form.timeline.value,
+            _subject: 'New Lead — Physician Home-Buying Guide download'
+          })
+        })
+        .then(function () { showSuccess(); })
+        .catch(function () { showSuccess(); });
+      });
+    })();
+  </script>
+</body>
+</html>
